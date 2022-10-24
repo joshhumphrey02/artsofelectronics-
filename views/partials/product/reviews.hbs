@@ -1,0 +1,69 @@
+<div class="reviews">
+  <div class="r_head">
+    <h2>Verified Customer Feedback</h2>
+    <a href="#">View all
+      <img
+        class="web_svg"
+        src="/svg/chevron_right_black_24dp.svg"
+        alt="svg"
+      /></a>
+  </div>
+  {{#if reviews}}
+  <div class="r_content">
+    <div class="r_grading">
+      <h4>VERIFIED RATINGS (<span>0</span>)</h4>
+      <div class="r_grad">
+        <h2><span>4.5</span>/<span>5</span></h2>
+        <h3 id="star" class="star_plug">
+            {{#rate 5}}
+            {{/rate}}
+        </h3>
+        <p><span>0</span> verified ratings</p>
+      </div>
+      <div class="grading_part">
+        <div class="parts">
+          <p><span>5</span><span class="star_plug">&starf;</span><span>(0)</span><progress value="1" max="100">1%</progress></p>
+        </div>
+        <div class="parts">
+          <p><span>4</span><span class="star_plug">&starf;</span><span>(0)</span><progress value="1" max="100">1%</progress></p>
+        </div>
+        <div class="parts">
+          <p><span>3</span><span class="star_plug">&starf;</span><span>(0)</span><progress value="1" max="100">1%</progress></p>
+        </div>
+        <div class="parts">
+          <p><span>2</span><span class="star_plug">&starf;</span><span>(0)</span><progress value="1" max="100">1%</progress></p>
+        </div>
+        <div class="parts">
+          <p><span>1</span><span class="star_plug">&starf;</span><span>(0)</span><progress value="1" max="100">1%</progress></p>
+        </div>
+      </div>
+    </div>
+    <div class="r_rev">
+      <h4>COMMENTS FROM VERIFIED PURCHASES(<span>0</span>)</h4>
+      <div class="rev">
+        {{#each reviews}}
+        <div class="rates">
+          <h1 class="star_plug">
+            {{#rate 5}}
+            {{/rate}}
+          </h1>
+          <h4>I like it</h4>
+          <p>Lorem ipsum dolor sit amet.</p>
+          <div class="rates_d">
+            <p>
+              <span>12-10-22</span>
+              <span>by {{person}}</span>
+            </p>
+            <h4 style="color: rgba(0, 255, 13, 0.6);">Verified purchase</h4>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+  {{else}}
+  <div class="no_rev">
+    <h1 style="margin: 3rem auto; text-align: center;">No Reviews Yet</h1>
+  </div>
+  {{/if}}
+</div>

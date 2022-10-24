@@ -1,0 +1,56 @@
+<div class="payment">
+    <h3>PAYMENT METHODS</h3>
+    <h3><button id="card_meth">Select a Payment Method</button></h3>
+    <dialog class="cardModal">
+        <h3>Provide Card Information <span id="cardClose">&times;</span></h3>
+        <div class="card_info">
+            <h3>
+                <span class="material-symbols-outlined">credit_card</span>
+                <span>Add a Card</span>
+                <span><img src="/icons/masterCard.jpg" alt="master card"></span>
+                <span><img src="/icons/visa.png" alt="visa card"></span>
+            </h3>
+        </div>
+        <div class="card_details">
+            <div class="col">
+                <div class="form_control">
+                    <input type="text" id="card_number" maxlength="16" placeholder="Card Number" value="" required>
+                    <label for="card_number">Card Number</label>
+                </div>
+                <p>Lorem ipsum dolor sit.</p>
+            </div>
+            <div class="col">
+                <div class="form_control">
+                    <input type="text" id="cardholder" placeholder="Cardholder Name" value="" required>
+                    <label for="cardholder">Cardholder Name</label>
+                </div>
+                <p></p>
+            </div>
+            <div class="col">
+                <div class="sub_col"> <!-- 19429577642788234  --->
+                    <div class="form_control">
+                        <input type="text" id="month" maxlength="2" placeholder="Month" value="" required>
+                        <label for="month">MM</label>
+                    </div>
+                </div>
+                <div class="sub_col">
+                    <div class="form_control">
+                        <input type="text" id="year" maxlength="4" placeholder="Year" value="" required>
+                        <label for="year">YY</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form_control">
+                    <input type="text" maxlength="3" id="cvv" placeholder="CVV" value="" required>
+                    <label for="cvv">CVV</label>
+                </div>
+                <p></p>
+            </div>
+        </div>
+        <div class="store">
+            <p>Your payment information is safe with us</p>
+            <button id="save">Save&Comfirm</button>
+        </div>
+    </dialog>
+</div>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/basic/utils.css" media="all"/>
+    <link rel="stylesheet" href="/css/basic/login.css"/>
+    <link rel="stylesheet" href="/css/basic/nav.css"/>
+    <link rel="stylesheet" href="/css/basic/footer.css"/>
+    <link rel="stylesheet" href="/css/product/product.css" />
+    <link rel="stylesheet" href="/css/product/product_modal.css" />
+    <title>Arts of Electronics - Product Page</title>
+  </head>
+
+  <body>
+    <!--   start of top section-->
+    {{> pre_nav}}
+    <!--  end of top section   -->
+
+    <!--   start of navbar -->
+    {{> navbar}}
+    <!---    end of navbar--->
+
+    <!----------start of forms -------------->
+    {{> reg_forms}}
+    <!--- end of forms ---->
+
+    <!-- start of product modal -->
+    {{> productModal}}
+    <!-- end of product modal--->
+
+    <!--- start of other pages --->
+    <div class="container">
+      <div class="top_section">
+        <div class="product">
+          {{#each product}}
+            <input id="product_id" type="hidden" name="id" value="{{this.product_id}}">
+            <div class="p_imgs">
+              <div class="product_img">
+                <img id="product_img" src="data:image/png;base64,{{this.image}}" style="top: 20px;" alt="{{this.name}}" loading="lazy">
+              </div>
+            </div>
+
+            <div class="product_info">
+              <div class="p_info">
+                <div class="p_title ">
+                  <h1 id="product_name">{{this.name}}</h1>
+                </div>
+                <div class="p_rev">
+                  <h4>
+                    <span class="star_plug">&starf; &starf; &starf; &starf;</span>
+                    <span class="p_reviews">10 Reviews</span>
+                    <span class="p_orders">24 Orders</span>
+                  </h4>
+                </div>
+              </div>
+              <div class="p_pricing">
+                <h1><span><span>&#8358;  </span><span id="product_price">{{this.price}}</span></span></h1>
+                <p>In stock</p>
+              </div>
+              <div class="p_qty">
+                <p>Quantity:</p>
+                <div class="qty_control">
+                  <span id="remove" class="qty_btn"><img class="web_svg" src="/svg/remove_black_24dp.svg" alt="svg"></span>
+                  <span id="product_qty">1</span>
+                  <span id="add" class="qty_btn"><img class="web_svg" src="/svg/plus.svg" alt="svg"></span>
+                </div>
+              </div>
+              <div class="control"> 
+                <button id="card_cart" class="">Add to Cart</button>
+                <button class="">Buy Now</button>
+                <button class=""><img class="web_svg" src="/svg/favorite_border_black_24dp.svg" alt="svg"><span style="color: black;">0</span></button>
+              </div>
+          {{/each}}
+            </div>
+          </div>
+          <div class="recommended">
+            <p>Recommended For You</p>
+            <div class="re-items">
+              {{#each  products}}
+              <a href="/{{this.category}}/{{this.name}}">
+                <div class="re_item">
+                  <div class="item_img">
+                    <img src="{{this.image}}" alt="{{this.name}}">
+                  </div>
+                  <div class="price">
+                    <h4><span>&#8358;  </span>{{this.price}}</h4>
+                  </div>
+                </div>
+              </a>
+              {{/each}}
+            </div>
+          </div>
+      </div>
+      <section class="narration">
+        <div class="n_left">
+          {{> productData}}
+          {{> spec}}
+          {{> reviews}}
+        </div>
+        <div class="n_right">
+          <h1>Coming soon</h1>
+        </div>
+      </section>
+
+      
+    </div>
+    <!--- end of other pages ---->
+
+    {{> footer}}
+
+  <script src="/js/basic/form.js"></script>
+  <script src="/js/product/product.js"></script>
+  </body>
+</html>

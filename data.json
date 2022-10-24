@@ -1,0 +1,31 @@
+{
+    "categories":{
+        "1":{
+            "category": "Accessories"
+        },
+        "2":{
+            "category": "Modules"
+        },
+        "3": {
+            "category": "Boards"
+        },
+        "4":{
+            "category": "Resistors"
+        },
+        "5":{
+            "category": "Capacitors"
+        },
+        "6":{
+            "category": "IC's"
+        },
+        "7":{
+            "category": "Sensors"
+        },
+        "8":{
+            "category": "Connectors"
+        },
+        "9":{
+            "category": "Batteries"
+        }
+    }
+}

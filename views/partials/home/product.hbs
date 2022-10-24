@@ -1,0 +1,23 @@
+
+{{#each products}}
+    <div class="card" id="product">
+    <a href="/p/{{this.category}}/{{this.name}}">
+        <p id="product_id" hidden>{{this.product_id}}</p>
+        <div class="card_img">
+        <img class="b-radius" style="max-width: 209px; height:149px" loading="lazy" src="data:image/png;base64,{{this.image}}" alt="{{this.name}}" />
+        </div>
+        <div class="card_text">
+        <p id="product_name">{{this.name}}</p>
+        </div>
+        <div class="card_rating">
+        <span style="font-size: 1.3rem; color: red;">&starf;&starf;&starf;&starf;</span>
+        <span style="font-weight: 600; color: black; font-size: 1.2rem">(4)</span>
+        </div>
+        <div class="card_price" style="color: blue; font-weight: 900">
+        <span style="margin-right: 0.4rem;">&#8358;</span>
+        <span id="price" style="font-size: 0.8rem;">{{this.price}}</span><span>.00</span>
+        <span id="qty" hidden>1</span>
+        </div>
+    </a>
+    </div>
+{{/each}}

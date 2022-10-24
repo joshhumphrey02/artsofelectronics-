@@ -1,0 +1,47 @@
+
+        <aside class="top_body_right">
+          <div class="profile_side">
+            <div class="pro_pix">
+              <img src="/background/profile_pix.png" alt="" />
+            </div>
+            {{#if userName}}
+              <h3>Hi, <span style="text-transform: capitalize;">{{userName}}</span></h3>
+            {{else}}
+              <h3>Welcome to </h3>
+              <h3>Arts Of Electronics</h3>
+            {{/if}}
+          </div>
+          <div class="pro_nav">
+            {{#if userName}}
+            <div class="items">
+              <img class="web_svg" src="/svg/person_black_24dp.svg" alt="svg">
+              <h5>Account</h5>
+            </div>
+            <div class="items">
+              <img class="web_svg" src="/svg/chat_black_24dp.svg" alt="svg">
+              <h5>Orders</h5>
+            </div>
+            <div class="items">
+              <img src="/svg/chat_black_24dp.svg" alt="svg" class="web_svg">
+              <h5>Messages</h5>
+            </div>
+            {{else}}
+              <div class="reg">
+                  <button  class="register">Register</button>
+                  <button class="signin">Sign in</button>
+              </div>
+            {{/if}}
+          </div>
+          <div class="display">
+            <div class="dis_text">
+              <h5>Exclusive offers</h5>
+              <h3>Just for new</h3>
+              <h3>Arts Of Electronics</h3>
+              <h3>Members!</h3>
+            </div>
+            <div class="dis_pix">
+              <img src="/background/bck3.jpg" alt="" />
+              <img src="/background/bck2.jpg" alt="" />
+            </div>
+          </div>
+        </aside>

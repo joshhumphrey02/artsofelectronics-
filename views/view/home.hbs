@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/basic/utils.css" media="all"/>
+    <link rel="stylesheet" href="/css/basic/login.css"/>
+    <link rel="stylesheet" href="/css/basic/nav.css"/>
+    <link rel="stylesheet" href="/css/basic/loader.css"/>
+    <link rel="stylesheet" href="/css/basic/footer.css"/>
+    <link rel="stylesheet" href="/css/home/main.css" />
+    <title>Arts of Electronics - Online Shopping for Popular Electronics and Home Gadgets</title>
+  </head>
+  <body>
+    <script src="/js/home/home.js"></script>
+    <!--   start of top section-->
+    {{> pre_nav}}
+    <!--  end of top section   -->
+
+    <!--   start of navbar -->
+    {{> navbar}}
+    <!---    end of navbar--->
+    <!-- start of loader animation --->
+        {{> loader}}
+    <!-- end of loader animation --->
+
+
+
+    <!----------start of forms -------------->
+    {{> reg_forms}}
+    <!--- end of forms ---->
+
+    <!----    start of top body  -->
+    <section class="top_body">
+      <div class="container top_body_menu d-grid">
+        <aside class="top_body_left">
+          <h3 class="text-dark"><img class="web_svg" src="/svg/menu_black_24dp.svg" alt="svg">
+            Categories
+          </h3>
+          {{#each categories}}
+          <div class="top_left_items">
+            <a href="#" class="btn">{{this.category}}</a>
+          </div>
+          {{/each}}
+        </aside>
+        <main class="top_body_center">
+          <div class="top_center_text">
+            <h3>Cool Electronic Gadgets</h3>
+          </div>
+          <div class="top_center_img">
+            <img src="/background/bck1.jpg" alt="Background images" />
+          </div>
+        </main>
+        {{> userAside}}
+      </div>
+    </section>
+    <!----    end of top body  -->
+
+    <!----    start of featured deals  -->
+    <section class="category my-2">
+      <div class="container category_menu">
+        <div class="category_text my-3">
+          <span class="dash"></span>
+          <h2 class="text-center">Featured Categories</h2>
+          <span class="dash"></span>
+        </div>
+        <div class="category_items">
+          {{> featured}}
+        </div>
+      </div>
+    </section>
+    <!----    enf of featured deals  -->
+
+    <!----    start of more to love  -->
+    <section class="more my-2">
+      <div class="container more_menu">
+        <div class="more_text my-3">
+          <span class="dash"></span>
+          <h2 class="text-center">More To love</h2>
+          <span class="dash"></span>
+        </div>
+        <div class="more_items">
+          {{> product}}
+        </div>
+      </div>
+    </section>
+    <!----    end of more to love  -->
+
+    {{> footer}}
+
+  <script src="/js/basic/form.js"></script>
+  </body>
+</html>
+
+
+
+

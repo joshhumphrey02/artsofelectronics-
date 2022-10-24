@@ -1,0 +1,48 @@
+<div class="summary_sec">
+    <div class="summary">
+        <h1>Summary</h1>
+        <div class="total">
+            <h4>Subtotal</h4>
+            <h3>NGN <span><span id="cartSub">0</span>.00</span></h3>
+        </div>
+        <div class="total">
+            <h4>Shipping fee</h4>
+            <h3>NGN <span id="fee">500.00</span></h3>
+        </div>
+        <div class="total">
+            <h4>Total</h4>
+            <h3>NGN <span><span id="total">0</span> .00</span></h3>
+        </div>
+        <div class="checkout">
+            {{#if checkout}}
+            <button id="paynow">Place Order</button>
+            {{else}}
+            <span id="next">
+            <button  id="checkout">Checkout (<span id="genCheckout">0</span>)</button>
+            </span>
+            {{/if}}
+        </div>
+        {{#if checkout}}
+        <div class="warn">
+            <p>Upon clicking 'Place Order', I confirm I have read and acknowledged <a href="#">all terms and policies</a>.</p>
+        </div>
+        {{/if}}
+    </div>
+
+    <div class="pay_method">
+        {{#if checkout}}
+        <div>
+            <p>Arts of Electronics keeps your information and payment safe</p>
+        </div>
+        {{else}}
+        <h3>Payment methods</h3>
+        <div class="methods">
+            <span>VISA <span style="color: black;">card</span></span>
+            <span>Master card</span>
+            <span>On Delivery</span>
+        </div>
+        <h3>Buyer Protection</h3>
+        <h5>Get full refund if the item is not as described or if is not delivered</h5>
+        {{/if}}
+    </div>
+</div>

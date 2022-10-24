@@ -1,0 +1,31 @@
+.ft_socials{
+    width: 30px;
+    margin-right: .4rem;
+}
+
+footer{
+    width: 100%;
+    margin-top: 2rem;
+}
+footer .container{
+    padding: .5rem .1rem;
+}
+footer .ft_links{
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    margin: .3rem 0;
+}
+footer .footer_menu{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.ft_bt{
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1rem 0;
+    border-top: 1px solid lightgray;
+    text-align: center;
+}

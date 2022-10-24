@@ -1,0 +1,62 @@
+.mobile_icon{
+    width: 28px;
+    height: 30px;
+}
+nav{
+    width: 100%;
+    background-color: var(--white-color);
+}
+nav .container{
+    display: grid;
+    grid-template-columns: auto 28%;
+    grid-template-rows: repeat(2, 1fr);
+    height: 6.7rem;
+    padding: 4px 0;
+    gap: 4px;
+    align-items: center;
+    overflow-x: hidden;
+}
+nav .logo{
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+}
+nav h2{
+    color: var(--text-primary);
+}
+nav .nav_menu{
+    display: flex;
+    justify-content: end;
+    gap: 18px;
+}
+nav form{
+    width: 96%;
+    height: 2.6rem;
+    display: flex;
+    justify-content: center;
+    background-color: lightgray;
+    grid-column: 1/3;
+    border-radius: 16px;
+    margin: auto;
+}
+nav form button{
+    border: none;
+    padding: 0 10px;
+    background: transparent;
+}
+nav form button .mobile_icon{
+    width: 24px;
+    height: 24px;
+}
+nav form input{
+    width: 88%;
+    height: 100%;
+    border-radius:  16px 0 0 16px;
+    font-size: large;
+    border:none;
+    padding-left: 6px;
+    background: transparent;
+}
+
+/* end of nav bar */

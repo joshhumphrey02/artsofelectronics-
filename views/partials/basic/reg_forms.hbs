@@ -1,0 +1,70 @@
+<section>
+    <link rel="stylesheet" href="/css/basic/comfirm_email.css">
+    {{> comfirm_email}}
+    <dialog class="form_modal">
+        <div class="reg">
+            <p id="registerBtn" class="form_border">Register</p>
+            <p id="signinBtn" class="form_border">Sign in</p>
+            <button class="close" type="button">
+                <img src="/svg/close_black_24dp.svg" alt="svg" class="web_svg">
+            </button>
+        </div>
+
+        <!--   login form--->
+        <div class="login_form">
+          <form class="reg_form" action="/form/login" method="post" autocomplete="off">
+              <div class="form_control">
+                <label for="email">Email</label>
+                <input class="A" id="email" type="email" name="email" value=""/>
+              </div>
+              <div class="form_control">
+                <label for="password">Password</label>
+                <input class="B" id="password" type="password" name="password" value="" />
+                <button class="view" type="button">
+                    <img src="/svg/visibility_black_24dp.svg" alt="svg" class="web_svg view_icon">
+                </button>
+              </div>
+              <a href="#" class="forgotten">Forgot Password?</a>
+              <div class="error" id="E1"></div>
+              <button type="submit" class="submit" id="C">Sign In</button>
+          </form>
+        </div>
+            <!----------------------- registration form --------------------------->
+        <div class="register_form">
+          <form class="reg_form" action="/form/register" method="post" autocomplete="off">
+              <div class="form_control">
+                <label for="firstName">First Name</label>
+                <input required class="D" id="firstName"  type="text" name="firstName" value=""/>
+              </div>
+              <div class="form_control">
+                <label for="lastName">Last Name</label>
+                <input required class="E" id="lastName"  type="text" name="lastName" value=""/>
+              </div>
+              <div class="form_control">
+                <label for="email2">Email Address</label>
+                <input required id="email2" class="F" type="email" name="email" value=""/>
+              </div>
+              <div class="form_control">
+                <label for="password2">Password</label>
+                <input required class="G" id="password2" type="password" name="password" value="" />
+                <button class="view" type="button">
+                    <img src="/svg/visibility_black_24dp.svg" alt="svg" class="web_svg view_icon">
+                </button>
+              </div>
+              <div class="form_control">
+                <label for="comPassword">Comfirm Password</label>
+                <input required class="H" id="comPassVal" type="password" name="comPassword" value="" />
+                <button class="view" type="button">
+                    <img src="/svg/visibility_black_24dp.svg" alt="svg" class="web_svg view_icon">
+                </button>
+              </div>
+              <div class="error" id="E2"></div>
+              <button type="button" class="submit" id="I">Comfirm Email</button>
+              <p class="agree">By creating an account, you agree to the 
+              <span><a href="#">Arts of Electronics.com Free Membership Agreement</a></span> And
+              <span><a href="#">Privacy Policy</a></span>
+              </p>
+          </form>
+        </div>
+    </dialog>
+</section>

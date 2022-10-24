@@ -1,0 +1,31 @@
+.loader{
+    position: fixed;
+    top: 40vh;
+    left: 50%;
+    transform: translate(-50%);
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: none;
+    z-index: 10;
+    background: transparent;
+}
+.loader::backdrop{
+    background: black;
+    opacity: 0.001;
+}
+.gif_con{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+}
+
+.gif {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}

@@ -1,0 +1,78 @@
+<section class="top">
+  <div class="container top_menu d-flex">
+    <div class="top_menu_item">
+    </div>
+    <div class="top_menu_item">
+      <p class="btn">
+        help
+        <span><img class="web_svg" src="/svg/expand_more_black_24dp.svg" alt="svg"></span>
+      </p>
+      <ul class="list">
+        <li><a href="#" class="btn">Customer Service</a></li>
+        <li><a href="#" class="btn">Disputes and Report</a></li>
+      </ul>
+    </div>
+    <div class="top_menu_item">
+      <p class="btn">Buyer Protection</p>
+    </div>
+    <div class="top_menu_item">
+      <p class="btn"><span></span> English / NGN</p>
+    </div>
+    <div class="top_menu_item" style="display: flex;">
+      <p class="btn"><img class="web_svg" style="width: 18px; height: 18px;" src="/svg/favorite_border_black_24dp.svg" alt="svg">Wish List</p>
+    </div>
+    <div class="top_menu_item">
+      <p class="btn">
+        Profile
+        <span><img class="web_svg" src="/svg/expand_more_black_24dp.svg" alt="svg"></span>
+      </p>
+      <div class="profile_menu">
+        {{#if userName}}
+          <div class="top_menua">
+            <div class="profile_info">
+              <input type="hidden" id="userId" value="{{userId}}" />
+              <div class="profile_img">
+                {{#if profile_pix}}
+                  <img src="{{profile_pix}}" alt="" />
+                {{else}}
+                  <img
+                    src="/background/profile_pix.png"
+                    alt="pix"
+                  />
+                {{/if}}
+              </div>
+              <div class="welcome_msg">
+                <h5>Welcome to Back,</h5>
+                <h4 id="userName" style="text-transform: capitalize;">{{userName}}</h4>
+              </div>
+            </div>
+            <div class="signout">
+              <a href="/logout">Sign Out</a>
+            </div>
+          </div>
+          <ul class="sub_menua">
+            <li><a href="#" class="btn">My Orders</a></li>
+            <li><a href="#" class="btn">Message Center</a></li>
+            <li><a href="#" class="btn">Payments</a></li>
+            <li><a href="#" class="btn">Wish List</a></li>
+          </ul>
+        {{else}}
+          <div class="top_menu">
+            <h4>Welcome to</h4>
+            <h5>Acts of Electronic!</h5>
+            <div class="reg">
+              <button class="register">Register</button>
+              <button class="signin">Sign in</button>
+            </div>
+          </div>
+          <ul class="sub_menu">
+            <li><a href="#" class="btn">My Orders</a></li>
+            <li><a href="#" class="btn">Message Center</a></li>
+            <li><a href="#" class="btn">Payments</a></li>
+            <li><a href="#" class="btn">Wish List</a></li>
+          </ul>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</section>

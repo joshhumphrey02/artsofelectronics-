@@ -1,0 +1,42 @@
+{{#each result}}
+<div class="product" id="product">
+    <input type="hidden" id="productId" value="{{this.product_id}}">
+    <div class="product_img">
+        <input type="checkbox" id="checkbox" class="" name="checkbox" value="{{this.checked}}">
+        <a class="item_link" href="/{{this.category}}/{{this.name}}">
+        <img src="data:image/png;base64,{{this.image}}" alt="{{this.name}}">
+        </a>
+    </div>
+    <div class="product_info">
+        <div class="title">
+            <a class="item_link" href="/{{this.category}}/{{this.name}}">
+            <h2 id="product_name">{{this.name}}</h2>
+            </a>
+            <div class="setup">
+                <button>
+                    <span id="fav" >
+                        <img src="/svg/favorite_border_black_24dp.svg" alt="svg" class="web_svg">
+                    </span>
+                </button>
+                <button>
+                    <span id="delete" >
+                        <img src="/svg/delete_black_24dp.svg" alt="svg" class="web_svg">
+                    </span>
+                </button>
+            </div>
+        </div>
+        <div class="price">
+            <h3>&#8358;  <span><span>{{this.price}}</span>.00</span></h3>
+            <div class="qtys">
+                <span>
+                    <img id="decrease" class="noCurs" src="/svg/remove_black_24dp.svg" alt="svg">
+                </span>
+                <span id="productQty">{{this.product_qty}}</span>
+                <span>
+                    <img id="increase" src="/svg/plus.svg" alt="svg">
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}

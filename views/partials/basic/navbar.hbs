@@ -1,0 +1,31 @@
+<nav>
+  <div class="container d-grid nav_menu">
+    <div class="nav_menu_item">
+      <a href="/" class="btn">
+        <h1 class="primary-color">Arts Of Electronics</h1>
+      </a>
+    </div>
+    <div class="nav_menu_item">
+      <form action="#" method="get">
+        <input
+          type="search"
+          name="search_bar"
+          id="search_bar"
+          placeholder="Search items Here.."
+        />
+        <select name="category">
+          <option value="all Categpory">All Categories</option>
+          {{#each categories}}
+            <option value="{{this.category}}">{{this.category}}</option>
+          {{/each}}
+        </select>
+        <button style="background: transparent; border: none;" type="submit"><img class="web_svg" src="/svg/search_black_24dp.svg" alt="svg"></button>
+      </form>
+    </div>
+    <div class="nav_menu_item">
+      <a href="/cart" class="btn nav_cart_items">
+        <span><img class="web_svg" style="width: 24px; height: 24px;" src="/svg/cart.svg" alt="svg"></span><span class="cart_length">0</span>
+      </a>
+    </div>
+  </div>
+</nav>

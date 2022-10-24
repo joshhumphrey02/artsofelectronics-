@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/basic/utils.css" media="all"/>
+    <link rel="stylesheet" href="/css/basic/login.css"/>
+    <title>Arts of Electronics - Login Page</title>
+  </head>
+
+  <body>
+
+    <!----------start of forms -------------->
+    {{> reg_forms}}
+    <input id="stop" type="hidden" name="" value="{{form}}">
+    <!--- end of forms ---->
+  <script src="/js/basic/form.js"></script>
+  <script>
+    const display = ()=>{
+        form_page.showModal();
+        register_form.style.display = "none";
+        login_form.style.display = "block";
+        login_btn.classList.add("afterScale");
+        register_btn.classList.remove("afterScale");
+        form_page.style.top = "24vh";
+        form_page.style.height = "24rem";
+    }
+    display();
+  </script>
+  </body>
+</html>

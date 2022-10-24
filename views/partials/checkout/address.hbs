@@ -1,0 +1,76 @@
+<div class="addresses">
+    <h3>SHIPPING ADDRESS</h3>
+    <h4>
+        {{#each user}}
+        <span>{{this.first_name}}</span>
+        <span>{{this.last_name}}, </span>
+        {{/each}} 
+        <span style="color: rgba(0, 0, 0, 0.7);" id="Phone"></span>
+    </h4>
+    <p><span id="Street"></span> <span id="Apartment"></span></p>
+    <p><span id="Lga"></span> <span id="State"></span> <span id="Country"></span></p>
+    <button id="add_address" class="butt">Add Address</button>
+    <p class="msg"></p>
+    <dialog class="address">
+        <h3>Add Address <span id="close">&times;</span></h3>
+        <div class="personal_info valid">
+            <h4>Personal Information</h4>
+            <div class="form_control">
+                <label id="coun" for="phone">+234</label>
+                <input type="tel" name="" required id="phone" placeholder="Phone Number*" value="">
+            </div>
+            <p>Please enter 10-11 digits</p>
+        </div>
+        <div class="address_info">
+            <h4>Address</h4>
+            <div class="top_side">
+                <div class="full_add valid">
+                    <div class="form_control">
+                        <input type="text" required id="street" placeholder="Street Address, P. O. box, etc" value="">
+                    </div>
+                    <p>Please provide a full address</p>
+                </div>
+                <div class="building">
+                    <div class="form_control">
+                        <input type="text" id="apartment" placeholder="Apt,Suite,Unit,etc.(Optional)" value="">
+                    </div>
+                    <p>Please provide your Apt,Suite,Unit,etc.(Optional) </p>
+                </div>
+            </div>
+            <div class="location">
+                    <div class="form_control">
+                        <select name="" id="country">
+                            <option value="Nigeria">Nigeria</option>
+                        </select>
+                    </div>
+                    <div class="form_control">
+                        <select name="State" id="state">
+                            <option value="Beyelsa State">Beyelsa State</option>
+                            <option value="River State">River State</option>
+                            <option value="Delta State">Delta State</option>
+                            <option value="Imo State">Imo State</option>
+                            <option value="Edo State">Edo State</option>
+                            <option value="Abia State">Abia State</option>
+                        </select>
+                    </div>
+                    <div class="form_control">
+                        <select name="Lga" id="lga">
+                            <option value="Yenagoa">Yenagoa</option>
+                            <option value="Ogbia">Ogbia</option>
+                            <option value="Sagbama">Sagbama</option>
+                            <option value="Ekeremor">Ekeremor</option>
+                            <option value="Brass">Brass</option>
+                            <option value="Nembe">Nembe</option>
+                            <option value="Kolokuma/Opokuma">Kolokuma/Opokuma</option>
+                            <option value="Southern Ijaw">Southern Ijaw</option>
+                        </select>
+                    </div>
+            </div>
+        </div>
+        <p class="warning"></p>
+        <div class="buttons">
+            <button id="comfirm">Comfirm</button>
+            <button id="cancel">Cancel</button>
+        </div>
+    </dialog>
+</div>

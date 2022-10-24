@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/basic/utils.css" />
+    <link rel="stylesheet" href="/css/basic/nav.css" />
+    <link rel="stylesheet" href="/css/basic/loader.css" />
+    <link rel="stylesheet" href="/css/basic/footer.css" />
+    <link rel="stylesheet" href="/css/cart/cart_items.css" />
+    <link rel="stylesheet" href="/css/cart/subtotal.css" />
+    <link rel="stylesheet" href="/css/checkout/address.css" />
+    <link rel="stylesheet" href="/css/checkout/checkout.css" />
+    <title>Art of Electronics - Checkout Page</title>
+</head>
+<body>
+    <!--   start of navbar -->
+    {{> navbar}}
+    <!---    end of navbar--->
+    <!-- start of loader animation --->
+        {{> loader}}
+    <!-- end of loader animation --->
+    <section class="cart_section">
+        <div class="container">
+            <div class="cart_items">
+                {{> address}}
+                {{> cards}}
+                {{> cart_item}}
+                <!----- end of product picked --->
+            </div>
+            {{> subtotal}}
+        </div>
+    </section>
+    {{> footer}}
+    <script src="/js/checkout/checkout.js"></script>
+    {{!-- <script src="/js/creditCard.js"></script> --}}
+</body>
+</html>

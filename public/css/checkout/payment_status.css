@@ -1,0 +1,15 @@
+section .container{
+    height: 80vh;
+    display: flex;
+    align-items: center;
+}
+.message{
+    width: 50%;
+    height: 8rem;
+    margin: auto;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, .2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
