@@ -15,7 +15,7 @@ require('dotenv').config();
 
 
 const app = express();
-const port = process.env.PORT || 4000;
+//const port = process.env.PORT || 4000;
 
 
 
@@ -106,7 +106,7 @@ app.use(function(err, req, res, next) {
 });
 
 
-app.listen(port, console.log(`app listening at port ${port}`));
+//app.listen(port, console.log(`app listening at port ${port}`));
 
 //For Master process
 // if (cluster.isMaster) {
@@ -130,4 +130,4 @@ app.listen(port, console.log(`app listening at port ${port}`));
 //     });
 // }
 //console.log(`Worker ${process.pid} started`);
-//module.exports = app;
+module.exports = app;
