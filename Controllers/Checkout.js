@@ -1,4 +1,5 @@
 const { db } = require("../models/sql/database");
+require('dotenv').config();
 let sql;
 
 exports.Checkout = async (req, res) => {

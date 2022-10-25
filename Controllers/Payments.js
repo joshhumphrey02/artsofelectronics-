@@ -1,3 +1,4 @@
+require('dotenv').config();
 var paystack = require("paystack-api")(process.env.PAYMENT_KEY);
 const { db } = require("../models/sql/database");
 
