@@ -5,9 +5,9 @@ const flash = require("connect-flash");
 const compression = require('compression');
 const morgan = require('morgan');
 //const device = require('node-device-detector');
-const cluster = require("cluster");
+//const cluster = require("cluster");
 const { sessionStore } = require("./models/sql/database");
-const numCPUs = require("os").cpus().length;
+//const numCPUs = require("os").cpus().length;
 require("./models/passport")(passport);
 const hbs = require("hbs");
 const { setMaxListeners, EventEmitter } = require("events");
@@ -109,17 +109,17 @@ app.use(function(err, req, res, next) {
 //app.listen(port, console.log(`app listening at port ${port}`));
 
 //For Master process
-if (cluster.isMaster) {
-	console.log(`Master ${process.pid} is running`);
-	for (let i = 0; i < numCPUs; i++) {
-		cluster.fork();
-	}
+// if (cluster.isMaster) {
+// 	console.log(`Master ${process.pid} is running`);
+// 	for (let i = 0; i < numCPUs; i++) {
+// 		cluster.fork();
+// 	}
 
-	// This event is firs when worker died
-	cluster.on('exit', (worker, code, signal) => {
-		console.log(`worker ${worker.process.pid} died`);
-	});
-}
+// 	// This event is firs when worker died
+// 	cluster.on('exit', (worker, code, signal) => {
+// 		console.log(`worker ${worker.process.pid} died`);
+// 	});
+// }
 // For Worker
 //else{
 // Workers can share any TCP connection
@@ -129,5 +129,5 @@ if (cluster.isMaster) {
 //         console.log("Error in server setup") :
 //     });
 // }
-console.log(`Worker ${process.pid} started`);
+//console.log(`Worker ${process.pid} started`);
 module.exports = app;
