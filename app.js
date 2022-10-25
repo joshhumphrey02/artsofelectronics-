@@ -38,28 +38,28 @@ hbs.registerHelper("rate", (values) => {
 
 
 
-// const target = new EventTarget();
-// const emitter = new EventEmitter();
-// setMaxListeners(250, target, emitter);
+const target = new EventTarget();
+const emitter = new EventEmitter();
+setMaxListeners(250, target, emitter);
 app.use(compression());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("./public"));
 app.use(express.static("./images"));
-// app.use(
-//   session({
-//     key: process.env.SESSION_KEY,
-//     secret: process.env.SESSION_SECRET,
-//     cookie: {
-//       maxAge: 259200000,
-//       httpOnly: true,
-//       secure: false,
-//     },
-//     resave: false,
-//     store: sessionStore,
-//     saveUninitialized: true,
-//   })
-// );
+app.use(
+  session({
+    key: process.env.SESSION_KEY,
+    secret: process.env.SESSION_SECRET,
+    cookie: {
+      maxAge: 259200000,
+      httpOnly: true,
+      secure: false,
+    },
+    resave: false,
+    store: sessionStore,
+    saveUninitialized: true,
+  })
+);
 
 app.use(morgan('dev'));
 app.use(passport.initialize());
@@ -90,9 +90,9 @@ app.use("/cart", require("./routes/cartRouter"));
 // })
 
 // catch 404 and forward to error handler
-// app.use(function(req, res, next) {
-//   next(createError(404));
-// });
+app.use(function(req, res, next) {
+  next(createError(404));
+});
 
 // error handler
 app.use(function(err, req, res, next) {

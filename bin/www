@@ -1,5 +1,5 @@
 var app = require('../app');
-var debug = require('debug')('artofelectronics-mobile:server');
+var debug = require('debug')('artofelectronics:server');
 var http = require('http');
 
 var port = normalizePort(process.env.PORT || 4000);
