@@ -1,5 +1,5 @@
 const express = require('express');
-const forms = require('../controllers/Forms');
+const forms = require('../Controllers/Forms');
 const { loggedIn, cartTransfer, login } = require('../models/middlewares');
 const router = express.Router();
 

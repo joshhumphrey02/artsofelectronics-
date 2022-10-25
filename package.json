@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node ./bin/www"
   },
   "author": "Humphrey Joshua",
   "license": "ISC",
@@ -27,5 +27,8 @@
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "paystack-api": "^2.0.6"
+  },
+  "engines": {
+    "node": "18.x"
   }
 }
