@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app.js"
   },
-  "author": "",
+  "author": "Humphrey Joshua",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -27,8 +27,5 @@
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "paystack-api": "^2.0.6"
-  },
-  "engines": {
-    "node": "18.x"
   }
 }
