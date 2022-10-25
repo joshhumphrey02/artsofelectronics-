@@ -83,7 +83,7 @@ app.use(flash());
 
 
 app.use("/", require("./routes/router"));
-app.use("/form", require("./routes/FormsRouter"));
+app.use("/form", require("./routes/formsRouter"));
 app.use("/cart", require("./routes/cartRouter"));
 // app.use('*', (req, res)=>{
 //   res.render('view/error')
