@@ -7,28 +7,29 @@ let data = "";
 
 exports.Home = async (req, res) => {
   try {
-    req.session.previous_url = req.url;
-    sql = "SELECT * FROM products ORDER BY product_id DESC";
-    await db(sql, data, (err, products) => {
-      let featuredList = [
-        "Accessories",
-        "Module",
-        "Sensors",
-        "Batteries",
-        "Ics",
-      ];
-      let featured = features(products, featuredList);
-      let id = req.session.passport ? req.session.passport.user : "";
-      sql = `SELECT * FROM customers WHERE user_id =${id}`;
-      db(sql, (err, user) => {
-        res.render("view/home", {
-          categories, 
-          products,
-          userName: user ? user[0].last_name : false,
-          featured,
-        });
-      });
-    });
+    // req.session.previous_url = req.url;
+    // sql = "SELECT * FROM products ORDER BY product_id DESC";
+    // await db(sql, data, (err, products) => {
+    //   let featuredList = [
+    //     "Accessories",
+    //     "Module",
+    //     "Sensors",
+    //     "Batteries",
+    //     "Ics",
+    //   ];
+    res.render('view/home', {categories});
+    //   let featured = features(products, featuredList);
+    //   let id = req.session.passport ? req.session.passport.user : "";
+    //   sql = `SELECT * FROM customers WHERE user_id =${id}`;
+    //   db(sql, (err, user) => {
+    //     res.render("view/home", {
+    //       categories, 
+    //       products,
+    //       userName: user ? user[0].last_name : false,
+    //       featured,
+    //     });
+    //   });
+    // });
   } catch (error) {
     console.log(error);
   }
