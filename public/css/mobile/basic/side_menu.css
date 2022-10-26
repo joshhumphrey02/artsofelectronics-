@@ -1,0 +1,37 @@
+.side_menu{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 100vh;
+}
+
+.side_menu .wrapper{
+    width: 74%;
+    background-color: var(--white-color);
+    padding-bottom: 1rem;
+}
+.side_nav {
+    height: 3rem;
+    color: var(--text-primary);
+    padding: .5rem .6rem;
+    border-bottom: 1px solid lightgray;
+}
+.side_cat{
+    margin: .5rem 0;
+    padding: 0 .8rem;
+}
+.side_cat h4{
+    margin: .4rem 0 .5rem;
+}
+.side_cat .cat_menu li{
+    padding: .5rem 0;
+}
+.cat_menu li a{
+    color: rgba(0, 0, 0, 0.9);
+    font-size: .8rem;
+    font-weight: 700;
+}

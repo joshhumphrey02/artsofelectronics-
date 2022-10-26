@@ -1,0 +1,20 @@
+
+    <!--  start of side menu-->
+    <section class="side_menu">
+      <div class="wrapper">
+        <div class="side_nav">
+          <h2>Art of Electronics</h2>
+        </div>
+        <div class="side_cat">
+          <h4>Popular Category</h4>
+          <ul class="cat_menu">
+            {{#each categories}}
+            <li>
+              <a href="/p/{{this.category}}">{{this.category}}</a>
+            </li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!--  end of side menu-->

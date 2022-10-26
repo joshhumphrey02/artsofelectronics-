@@ -4,7 +4,6 @@ const session = require("express-session");
 const flash = require("connect-flash");
 const compression = require('compression');
 const morgan = require('morgan');
-//const device = require('node-device-detector');
 //const cluster = require("cluster");
 const { sessionStore } = require("./models/sql/database");
 //const numCPUs = require("os").cpus().length;
@@ -12,15 +11,13 @@ require("./models/passport")(passport);
 const hbs = require("hbs");
 const { setMaxListeners, EventEmitter } = require("events");
 require('dotenv').config();
+const device = require('express-device');
 
 
 const app = express();
-//const port = process.env.PORT || 4000;
-
 
 
 app.set("view engine", "hbs");
-
 hbs.registerPartials(__dirname + "/views/partials/home");
 hbs.registerPartials(__dirname + "/views/partials/basic");
 hbs.registerPartials(__dirname + "/views/partials/cart");
@@ -34,9 +31,6 @@ hbs.registerHelper("rate", (values) => {
   }
   return rating.join("");
 });
-
-
-
 
 const target = new EventTarget();
 const emitter = new EventEmitter();
@@ -65,29 +59,20 @@ app.use(morgan('dev'));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
-// const DeviceDetector = require('node-device-detector');
-// const DeviceHelper = require('node-device-detector/helper');
-
-// const detector = new DeviceDetector;
-// const userAgent = 'Mozilla/5.0 (Linux; Android 5.0; NX505J Build/KVT49L) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.78 Mobile Safari/537.36';
-// const result = detector.detect(userAgent);
-
-// console.log(result)
-// /* check device type (feature phone, smartphone or phablet) */
-// //console.log(DeviceHelper.isMobile(result));
-// /* check device type is desktop */
-// //console.log(DeviceHelper.isDesktop(result));
-// /* check device type is tablet  */
-// DeviceHelper.isTablet(result);
+app.use(device.capture());
 
 
 
+app.use((req, res, next)=>{
+  req.session.device = req.device.type;
+  next();
+});
 app.use("/", require("./routes/router"));
 app.use("/form", require("./routes/formsRouter"));
 app.use("/cart", require("./routes/cartRouter"));
-// app.use('*', (req, res)=>{
-//   res.render('view/error')
-// })
+app.get('/favicon.ico', (req, res)=>{
+  res.status(204).end();
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -106,7 +91,6 @@ app.use(function(err, req, res, next) {
 });
 
 
-//app.listen(port, console.log(`app listening at port ${port}`));
 
 //For Master process
 // if (cluster.isMaster) {

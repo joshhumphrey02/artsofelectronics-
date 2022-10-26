@@ -11,9 +11,10 @@ const options = {
   user: process.env.USER,
   password: process.env.PASSWORD,
   database: process.env.DB,
-  max_allowed_packet:'2G'
+  max_allowed_packet:'10G'
 };
 const pool = mysql.createPool(options);
+pool.setMaxListeners(200);
 
 module.exports = {
   sessionStore: new MySQLStore(
@@ -58,7 +59,7 @@ module.exports = {
       }
       connection.on("error", (err) => {
         connection.release();
-        if (err) console.log(err.code);
+        //if (err) console.log(err.code);
       });
     });
   },

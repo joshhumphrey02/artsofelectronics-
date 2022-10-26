@@ -5,61 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../css/utils.css" />
-    <link rel="stylesheet" href="../css/footer.css" />
-    <link rel="stylesheet" href="../css/nav.css" />
-    <link rel="stylesheet" href="../css/home/products.css" />
-    <link rel="stylesheet" href="../css/home/main.css" />
+    <link rel="stylesheet" href="/css/basic/utils.css" />
+    <link rel="stylesheet" href="/css/mobile/basic/footer.css" />
+    <link rel="stylesheet" href="/css/mobile/basic/nav.css" />
+    <link rel="stylesheet" href="/css/mobile/basic/side_menu.css" />
+    <link rel="stylesheet" href="/css/mobile/home.css" />
   </head>
   <body>
-    <nav>
-      <div class="container">
-        <div class="logo">
-          <span
-            ><img
-              style="width: 50px; height: 35px"
-              src="/svg/menu_black_24dp.svg"
-              alt="svg"
-          /></span>
-          <h2>Art of Electronics</h2>
-        </div>
-        <ul class="nav_menu">
-          <li class="menu_item">
-            <a href="/profile" class="links">
-              <img
-                src="/svg/person_black_24dp.svg"
-                alt="icon"
-                class="mobile_icon"
-              />
-            </a>
-          </li>
-          <li class="menu_item">
-            <a href="/cart" class="links">
-              <img src="/svg/cart.svg" alt="icon" class="mobile_icon" />
-            </a>
-          </li>
-        </ul>
-        <form class="search" action="/search" method="post">
-          <input type="search" name="" id="" />
-          <button type="submit">
-            <img class="mobile_icon" src="/svg/search.svg" alt="icon" />
-          </button>
-        </form>
-      </div>
-    </nav>
+    <!-- start of navbar -->
+    {{> nav}}
     <!-- end of navbar -->
+    <!-- start of side_menu -->
+    {{> side_menu}}
+    <!-- end of side_menu -->
 
     <!-- start of features -->
     <div class="collection">
       <h3 style="color: black">Shop From our Collection</h3>
       <div class="container">
-        {{#each categories}}
+        {{#each featured}}
         <div class="card">
           <div class="card_imgs">
             <a href="/p/{{this.category}}" class="card_img">
               <img
                 class="b-radius"
-                src="data:image/png;base64,{{this.image}}"
+                src="data:image/png;base64,{{this.pix1}}"
                 alt=""
                 loading="lazy"
               />
@@ -80,7 +50,7 @@
       <div class="container">
           <!-- products -->
           <div class="recent">
-            {{#each recent}}
+            {{#each products}}
             <div class="card" id="product">
               <a href="/p/{{this.category}}/{{this.name}}">
                 <div class="card_img">
