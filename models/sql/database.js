@@ -11,6 +11,7 @@ const options = {
   user: process.env.USER,
   password: process.env.PASSWORD,
   database: process.env.DB,
+  max_allowed_packet:'2G'
 };
 const pool = mysql.createPool(options);
 
@@ -57,7 +58,7 @@ module.exports = {
       }
       connection.on("error", (err) => {
         connection.release();
-        if (err) throw new Error(err.code);
+        if (err) console.log(err.code);
       });
     });
   },
