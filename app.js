@@ -23,6 +23,7 @@ hbs.registerPartials(__dirname + "/views/partials/basic");
 hbs.registerPartials(__dirname + "/views/partials/cart");
 hbs.registerPartials(__dirname + "/views/partials/checkout");
 hbs.registerPartials(__dirname + "/views/partials/product");
+hbs.registerPartials(__dirname + "/views/mobile/partials");
 hbs.registerPartials(__dirname + "/views/partials/log");
 hbs.registerHelper("rate", (values) => {
   let rating = [];
