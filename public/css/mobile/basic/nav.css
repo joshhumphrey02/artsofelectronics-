@@ -12,7 +12,7 @@ nav .container{
     grid-template-rows: repeat(2, 1fr);
     height: 6.7rem;
     padding: 4px 0;
-    gap: 4px;
+    gap: 8px;
     align-items: center;
     overflow-x: hidden;
 }
@@ -22,6 +22,7 @@ nav .logo{
     display: flex;
     align-items: center;
 }
+
 nav h2{
     color: var(--text-primary);
 }

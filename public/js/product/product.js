@@ -69,7 +69,7 @@ const cartB = async()=>{
   let res = await fetch("/getCart")
   let data = await res.json();
   data.forEach(item => {
-    if(item.name == productName.innerHTML){
+    if(item.name == div('#product_name').innerHTML){
       cartBtn.classList.add('qty');
       add.classList.add('qty');
       remove.classList.add('qty');

@@ -10,11 +10,16 @@ const Loaded = async () => {
     divz('#cart_value').innerHTML = divz(".cart_length").innerHTML = data.length;
     let check = data.some(item=> item.checked);
     let fee = check ? Number(divz("#fee").innerHTML) : 0;
-    let sum = data.reduce((sum, value)=> value.checked ? (sum + (value.price * value.product_qty)) : 0, 0);
+    //let sum = data.reduce((sum, value)=> value.checked ? (sum + (value.price * value.product_qty)) : 0, 0);
+    let total = ()=>{
+      let tot = 0;
+      data.forEach(item=>{if(item.checked == 1)return tot += (Number(item.price)* Number(item.product_qty))});
+      return tot;
+    }
     check ? divz("#checkout").classList.remove('noCurs') : divz("#checkout").classList.add('noCurs');
     data ? divz("#checkLab").classList.add('noCurs') : divz("#checkLab").classList.remove('noCurs');
-    divz("#cartSub").innerHTML = sum;
-    divz('#total').innerHTML = divz("#genCheckout").innerHTML = sum + fee;
+    divz("#cartSub").innerHTML = total();
+    divz('#total').innerHTML = divz("#genCheckout").innerHTML = total() + fee;
     products.forEach((product) => {
         const elem = tag=> product.querySelector(tag)
         elem('#productQty').innerHTML < 2 ? elem('#decrease').classList.add("noCurs") : elem('#decrease').classList.remove("noCurs");

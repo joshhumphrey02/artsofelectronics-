@@ -13,25 +13,33 @@
     width: 74%;
     background-color: var(--white-color);
     padding-bottom: 1rem;
+    border-bottom-right-radius: 4px;
 }
 .side_nav {
     height: 3rem;
     color: var(--text-primary);
     padding: .5rem .6rem;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid;
 }
 .side_cat{
     margin: .5rem 0;
     padding: 0 .8rem;
 }
-.side_cat h4{
-    margin: .4rem 0 .5rem;
+.side_cat h3{
+    padding: .4rem 0 .5rem;
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.side_cat h3 img{
+    width: 2.4rem;
 }
 .side_cat .cat_menu li{
     padding: .5rem 0;
 }
 .cat_menu li a{
     color: rgba(0, 0, 0, 0.9);
-    font-size: .8rem;
+    font-size: 1rem;
     font-weight: 700;
 }

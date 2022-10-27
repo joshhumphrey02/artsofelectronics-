@@ -76,15 +76,19 @@ exports.Product = (req, res) => {
   db(sql, (err, product) => {
     sql = `SELECT * FROM products WHERE category ='${product[0].category}'  ORDER BY id DESC LIMIT 3`;
     db(sql, (err, products)=>{
-      let id = req.session.passport ? req.session.passport.user : "";
-      sql = `SELECT * FROM customers WHERE user_id =${id}`;
-      db(sql, (err, user) => {
-        res.render("view/product", { 
-          product,
-          products,
-          userName: user ? user[0].last_name : false
-        });
-      })
+      if(req.session.device == "phone"){
+        res.render("mobile/product", {product, categories});
+      }else{
+        let id = req.session.passport ? req.session.passport.user : "";
+        sql = `SELECT * FROM customers WHERE user_id =${id}`;
+        db(sql, (err, user) => {
+          res.render("view/product", { 
+            product,
+            products,
+            userName: user ? user[0].last_name : false
+          });
+        })
+      }
     }) 
   });
 };

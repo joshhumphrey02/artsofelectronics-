@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arts of Electronics - Online Shopping for Popular Electronics and Home Gadgets</title>
+    <link rel="stylesheet" href="/css/basic/utils.css" />
+    <link rel="stylesheet" href="/css/mobile/basic/footer.css" />
+    <link rel="stylesheet" href="/css/mobile/basic/nav.css" />
+    <link rel="stylesheet" href="/css/mobile/basic/side_menu.css" />
+    <link rel="stylesheet" href="/css/mobile/cart.css" />
+  </head>
+  <body>
+    <!-- start of navbar -->
+    {{> nav}}
+    <!-- end of navbar -->
+    <!-- start of side_menu -->
+    {{> side_menu}}
+    <!-- end of side_menu -->
+
+    
+    <div class="subtotal">
+      <div class="container">
+        <h4>CART SUMMARY</h4>
+        <div class="sub">
+          <h3>Subtotal</h3>
+          <span id="fee" hidden>500</span>
+          <span hidden id="total"></span>
+          <h3><span>&#8358;</span> <span id="cartSub">0</span></h3>
+        </div>
+        <p>Delivery fee not included yet</p>
+      </div>
+    </div>
+
+    <div class="cart_items">
+      <div class="container">
+        <h3>CART ITEMS <span>(<span id="cart_value">0</span>)</span></h3>
+        <div class="products">
+            {{#each result}}
+          <div class="product" id="product">
+            <input type="hidden" id="productId" value="{{this.product_id}}" />
+            <div class="product_img">
+              <input
+                type="checkbox"
+                id="checkbox"
+                class=""
+                name="checkbox"
+                value="{{this.checked}}"
+              />
+              <a class="item_link" href="/p/{{this.category}}/{{this.name}}">
+                <img src="data:image/png;base64,{{this.image}}" alt="{{this.name}}" />
+              </a>
+            </div>
+            <div class="product_info">
+              <div class="title">
+                <a class="item_link" href="/p/{{this.category}}/{{this.name}}">
+                  <h3 id="product_name">{{this.name}}</h3>
+                </a>
+              </div>
+              <div class="price">
+                <h3>&#8358; <span>{{this.price}}</span></h3>
+                <div class="qtys">
+                  <span>
+                    <img id="decrease"class="noCurs" src="/svg/remove_black_24dp.svg" alt="svg"/>
+                  </span>
+                  <span id="productQty">{{this.product_qty}}</span>
+                  <span>
+                    <img id="increase" src="/svg/plus.svg" alt="svg" />
+                  </span>
+                </div>
+                <div class="setup">
+                    <span hidden id="fav"></span>
+                  <button id="delete">
+                      <img
+                        src="/svg/delete_black_24dp.svg"
+                        alt="svg"
+                        class="mobile_icon"
+                      /> Remove
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+        <div class="checkout">
+          <div class="checked">
+            <input type="checkbox" id="genCheckbox" name="genCheckbox"/>
+            <label id="checkLab" for="genCheckbox">Select All</label>
+          </div>
+          <span id="next">
+            <button  id="checkout">CHECKOUT<span hidden id="genCheckout"></span></button>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- start of footer -->
+    {{> footer}}
+    <!-- end of footer -->
+    <script src="/js/mobile/side_menu.js"></script>
+    <script src="/js/cart/cart.js"></script>
+  </body>
+</html>

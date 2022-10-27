@@ -1,5 +1,6 @@
 const { db } = require("../models/sql/database");
 const { activeQueries } = require('../models/Cart/queries');
+const { categories } = require("../data.json");
 let sql;
 
 
@@ -10,9 +11,14 @@ exports.Cart = async (req, res) => {
       `SELECT * FROM products JOIN cart ON products.product_id = cart.product_id WHERE cart.user_id = ${req.session.passport.user}` : 
       `SELECT * FROM products JOIN cart ON products.product_id = cart.product_id WHERE cart.session_id = "${req.sessionID}"`;
       await db(sql, (err, result)=>{
-        let id = req.session.passport ? req.session.passport.user : "";
-        sql = `SELECT * FROM customers WHERE user_id =${id}`;
-        db(sql, (err, user) => res.render("view/cart", { result, userName: user ? user[0].last_name : false }));
+        if(req.session.device == "phone"){
+         res.render("mobile/cart", { result, categories});
+        }
+        else{
+          let id = req.session.passport ? req.session.passport.user : "";
+          sql = `SELECT * FROM customers WHERE user_id =${id}`;
+          db(sql, (err, user) => res.render("view/cart", { result, userName: user ? user[0].last_name : false }));
+        }
       })
   } catch (err) {
     console.log(err);
