@@ -1,14 +1,16 @@
 .side_menu{
-    display: none;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 10;
-    background-color: rgba(0, 0, 0, 0.1);
+    background: none;
     width: 100%;
     height: 100vh;
+    border: none;
 }
-
+.side_menu::backdrop{
+    background-color: rgba(0, 0, 0, .1);
+}
 .side_menu .wrapper{
     width: 74%;
     background-color: var(--white-color);

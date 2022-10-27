@@ -8,7 +8,7 @@ nav{
 }
 nav .container{
     display: grid;
-    grid-template-columns: auto 28%;
+    grid-template-columns: auto 20%;
     grid-template-rows: repeat(2, 1fr);
     height: 6.7rem;
     padding: 4px 0;
@@ -21,10 +21,12 @@ nav .logo{
     height: 3rem;
     display: flex;
     align-items: center;
+    background-color: red;
 }
 
 nav h2{
     color: var(--text-primary);
+    margin-left: .4rem;
 }
 nav .nav_menu{
     display: flex;
@@ -60,4 +62,24 @@ nav form input{
     background: transparent;
 }
 
+.nav_cart_items{
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.nav_cart_items:hover{
+    color: var(--text-primary);
+}
+.cart_length{
+    position: absolute;
+    background-color: blue;
+    border-radius: 50%;
+    height: fit-content;
+    width: fit-content;
+    top: 6px;
+    right: 5px;
+    padding: 2px 4px 2px 3px;
+    color: var(--white-color);
+    font-size: 14px;
+}
 /* end of nav bar */
