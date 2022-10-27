@@ -21,7 +21,6 @@ nav .logo{
     height: 3rem;
     display: flex;
     align-items: center;
-    background-color: red;
 }
 
 nav h2{
@@ -30,8 +29,7 @@ nav h2{
 }
 nav .nav_menu{
     display: flex;
-    justify-content: end;
-    gap: 18px;
+    justify-content: space-between;
 }
 nav form{
     width: 96%;
