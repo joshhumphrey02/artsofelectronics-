@@ -60,7 +60,7 @@
     grid-template-columns: repeat(10, 1fr);
 }
 .recent .card{
-    width: 120px;
+    width: 130px;
     min-height: 110px;
     margin-bottom: .4rem;
 }
@@ -94,15 +94,13 @@
     background-color: skyblue;
 }
 .mores{
-    overflow: auto;
-    white-space: nowrap;
     display: grid;
-    gap: .5rem;
-    grid-template-columns: repeat(10, 1fr);
+    gap: .3rem;
+    grid-template-columns: repeat(3, 1fr);
     transition: 2s;
 }
 .mores .card{
-    width: 140px;
+    width: 120px;
     min-height: 110px;
     margin-bottom: .4rem;
 }

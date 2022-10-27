@@ -9,23 +9,23 @@ exports.Home = async (req, res) => {
   try {
     req.session.previous_url = req.url;
     let id = req.session.passport ? req.session.passport.user : "";
-    sql = "SELECT * FROM products ORDER BY product_id DESC";
+    sql = "SELECT * FROM products ORDER BY product_id LIMIT 30";
     await db(sql, data, (err, products) => {
       if(req.session.device == "phone"){
-        let featuredList = [ "Accessories", "Module", "Sensors", "Batteries", "Ics", "Boards", "Capacitors", "Resistors" ];
-        let featured = features(products, featuredList);
-        sql = `SELECT * FROM customers WHERE user_id =${id}`;
-        db(sql, (err, user) => {
+        let featuredList = [ "Accessories", "Modules", "Sensors", "Batteries", "Ic's", "Boards", "Capacitors", "Resistor" ];
+        let featured = features(products, featuredList);   
+         sql = "SELECT * FROM products ORDER BY product_id DESC LIMIT 6";
+        db(sql, (err, recent) => {
           res.render("mobile/home", {
             categories, 
             products,
-            userName: user ? user[0].last_name : false,
+            recent: recent,
             featured,
           });
         });
       }
       else{
-        let featuredList = [ "Accessories", "Module", "Sensors", "Batteries", "Ics" ];
+        let featuredList = [ "Accessories", "Module", "Sensors", "Batteries", "Ic's" ];
         let featured = features(products, featuredList);
         sql = `SELECT * FROM customers WHERE user_id =${id}`;
         db(sql, (err, user) => {
