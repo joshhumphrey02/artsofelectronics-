@@ -1,4 +1,7 @@
-const div = (div)=>document.querySelector(div);
+div('#user').addEventListener('click', (e)=>{
+    e.preventDefault();
+    formHandle("log", true, "log_h", true, null);
+});
 
 div('#menu').addEventListener('click', ()=>{
     div('.side_menu').showModal();

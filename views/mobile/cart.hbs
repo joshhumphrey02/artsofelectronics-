@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="/css/mobile/basic/footer.css" />
     <link rel="stylesheet" href="/css/mobile/basic/nav.css" />
     <link rel="stylesheet" href="/css/mobile/basic/side_menu.css" />
+    <link rel="stylesheet" href="/css/basic/comfirm_email.css">
+    <link rel="stylesheet" href="/css/basic/login.css">
     <link rel="stylesheet" href="/css/mobile/cart.css" />
   </head>
   <body>
@@ -18,6 +20,12 @@
     <!-- start of side_menu -->
     {{> side_menu}}
     <!-- end of side_menu -->
+    <!-- start of email comfirmation -->
+    {{> comfirm_email}}
+    <!-- end of email comfirmation -->
+    <!-- start of forms -->
+    {{> reg_forms}}
+    <!-- end of forms -->
 
     
     <div class="subtotal">
@@ -99,6 +107,7 @@
     <!-- start of footer -->
     {{> footer}}
     <!-- end of footer -->
+    <script src="/js/basic/form.js"></script>
     <script src="/js/mobile/side_menu.js"></script>
     <script src="/js/cart/cart.js"></script>
   </body>

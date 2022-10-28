@@ -17,7 +17,7 @@
 }
 .form_modal::backdrop{
     background: black;
-    opacity: 0.8;
+    opacity: 0.5;
 }
 .form_modal .reg{
     position: relative;
@@ -29,13 +29,14 @@
 }
 .form_modal .reg .close{
     position: absolute;
-    right: -65px;
+    right: -60px;
     top: 4px;
     background-color: transparent;
     border: none;
 }
-.form_modal .reg .close span{
-    font-size: 1.8rem;
+.form_modal .reg .close img{
+    width: 2.5rem;
+    height: 2.5rem;
 }
 .form_modal .reg p{
     position: relative;
@@ -142,12 +143,7 @@ form .error button{
     background: none;
     border: none;
 }
-.error p{
-    display: inline-block;
-    height: fit-content;
-    width: fit-content;
-    padding-left: 0.5rem;
-}
+
 .login_form{
     width: 100%;
     display: none;
@@ -205,15 +201,30 @@ form .error button{
     opacity: 1;
     background: none;
 }
-/* .gray{
-    border: 0.18rem solid gray;
+
+
+@media screen and (max-width: 600px) {
+    .form_modal{
+        width: 85vw;
+    }
+    .log_h{
+        height: 20rem;
+        top: 20vh;
+    }
+    .reg_h{
+        height: 33rem;
+    }
+    .form_modal .reg .close img{
+        width: 2rem;
+        height: 2rem;
+    }
+    .form_modal form{
+        width: 90%;
+    }
+    .form_control{
+        height: 2.6rem;
+    }
+    .form_modal .submit{
+        font-size: 1.4rem;
+    }
 }
-.red{
-    border: 0.18rem solid red;
-}
-.green{
-    border: 0.18rem solid green;
-}
-.yellow{
-    border: 0.18rem solid yellow;
-} */
