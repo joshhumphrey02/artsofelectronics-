@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/css/mobile/basic/nav.css" />
     <link rel="stylesheet" href="/css/mobile/basic/side_menu.css" />
     <link rel="stylesheet" href="/css/basic/login.css">
+    <link rel="stylesheet" href="/css/basic/loader.css">
     <link rel="stylesheet" href="/css/basic/comfirm_email.css">
     <link rel="stylesheet" href="/css/mobile/product.css" />
 </head>
@@ -26,6 +27,9 @@
     <!-- start of forms -->
     {{> reg_forms}}
     <!-- end of forms -->
+    <!-- start of loader modal  -->
+    {{> loader}}
+    <!-- end of loader modal  -->
 
 
     
@@ -66,25 +70,12 @@
               <span>&starf;</span> <span>&starf;</span
               ><span>(No rating available)</span>
             </div>
-            <div class="fav">
-              <span class="fav_btn">
-                <img src="/svg/favorite_border_black_24dp.svg" alt="" />
-              </span>
-            </div>
           </div>
         </div>
         {{/each}}
       </div>
     </div>
     <!--  end of product -->
-    <!--  start of cart button -->
-    <div class="cart_btn">
-      <button class="fav_btn">
-        <img src="/svg/favorite_border_black_24dp.svg" alt="" />
-      </button>
-      <button id="card_cart">ADD TO CART</button>
-    </div>
-    <!--  end of cart button -->
     <div class="product_data dets">
       {{#each product}}
       <h2>Product Details 
@@ -97,6 +88,14 @@
       </div>
       {{/each}}
     </div>
+    <!--  start of cart button -->
+    <div class="cart_btn">
+      <button class="fav_btn">
+        <img src="/svg/favorite_border_black_24dp.svg" alt="" />
+      </button>
+      <button id="card_cart">ADD TO CART</button>
+    </div>
+    <!--  end of cart button -->
 
     <!-- start of product modal-->
     {{> productModal}}
@@ -104,7 +103,7 @@
 
 
     <!-- start of footer-->
-    {{> footer}}
+    {{> foot}}
     <!-- end of footer-->
     <script src="/js/basic/form.js"></script>
     <script src="/js/mobile/side_menu.js"></script>

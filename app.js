@@ -65,12 +65,10 @@ app.use(device.capture());
 
 
 app.use((req, res, next)=>{
-  req.session.device = req.device.type;
+  req.session.device = req.device.type ? req.device.type : desktop;
   next();
 });
 app.use("/", require("./routes/router"));
-app.use("/form", require("./routes/formsRouter"));
-app.use("/cart", require("./routes/cartRouter"));
 app.get('/favicon.ico', (req, res)=>{
   res.status(204).end();
 })

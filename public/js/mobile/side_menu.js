@@ -1,14 +1,15 @@
-div('#user').addEventListener('click', (e)=>{
-    e.preventDefault();
-    formHandle("log", true, "log_h", true, null);
-});
+const diz = (diz)=>document.querySelector(diz);
 
-div('#menu').addEventListener('click', ()=>{
-    div('.side_menu').showModal();
+if(diz('#user').innerHTML == "true"){
+    formHandle("log", true, "log_h", true, null);
+}
+
+diz('#menu').addEventListener('click', ()=>{
+    diz('.side_menu').showModal();
 })
-div('body').addEventListener('click', (e)=>{
+diz('body').addEventListener('click', (e)=>{
     if(e.target.classList == "side_menu"){
-        div('.side_menu').close();
+        diz('.side_menu').close();
     }
 })
 
@@ -18,7 +19,7 @@ function Load (){
       .then(res => res.json()) 
       .then(data => {
           if(data.length > 0){
-            div('.cart_length').innerHTML = data.length;
+            diz('.cart_length').innerHTML = data.length;
           }
       })
 }

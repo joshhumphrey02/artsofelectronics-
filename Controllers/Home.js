@@ -12,6 +12,7 @@ exports.Home = async (req, res) => {
     sql = "SELECT * FROM products ORDER BY product_id LIMIT 30";
     await db(sql, data, (err, products) => {
       if(req.session.device == "phone"){
+        let notLogged = req.flash('notLogged');
         let featuredList = [ "Accessories", "Modules", "Sensors", "Batteries", "Ic's", "Boards", "Capacitors", "Resistor" ];
         let featured = features(products, featuredList);   
          sql = "SELECT * FROM products ORDER BY product_id DESC LIMIT 6";
@@ -21,6 +22,7 @@ exports.Home = async (req, res) => {
             products,
             recent: recent,
             featured,
+            notLogged
           });
         });
       }
@@ -77,7 +79,8 @@ exports.Product = (req, res) => {
     sql = `SELECT * FROM products WHERE category ='${product[0].category}'  ORDER BY id DESC LIMIT 3`;
     db(sql, (err, products)=>{
       if(req.session.device == "phone"){
-        res.render("mobile/product", {product, categories});
+        let notLogged = req.flash('notLogged');
+        res.render("mobile/product", {product, categories, notLogged});
       }else{
         let id = req.session.passport ? req.session.passport.user : "";
         sql = `SELECT * FROM customers WHERE user_id =${id}`;

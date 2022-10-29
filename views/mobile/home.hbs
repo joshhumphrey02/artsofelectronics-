@@ -9,11 +9,21 @@
     <link rel="stylesheet" href="/css/mobile/basic/footer.css" />
     <link rel="stylesheet" href="/css/mobile/basic/nav.css" />
     <link rel="stylesheet" href="/css/mobile/basic/side_menu.css" />
+    <link rel="stylesheet" href="/css/basic/loader.css">
     <link rel="stylesheet" href="/css/basic/comfirm_email.css">
     <link rel="stylesheet" href="/css/basic/login.css">
     <link rel="stylesheet" href="/css/mobile/home.css" />
   </head>
   <body>
+    <!-- start of loader modal  -->
+    {{> loader}}
+    <!-- end of loader modal  -->
+    <script>
+      document.querySelector('.loader').showModal();
+      window.onload = ()=>{
+        document.querySelector('.loader').close();
+      }
+    </script>
     <!-- start of navbar -->
     {{> nav}}
     <!-- end of navbar -->
@@ -26,7 +36,6 @@
     <!-- start of forms -->
     {{> reg_forms}}
     <!-- end of forms -->
-
     <!-- start of features -->
     <div class="collection">
       <h3 style="color: black">Shop From our Collection</h3>
@@ -112,7 +121,7 @@
     </section>
     <!-- end of More -->
     <!-- start of footer -->
-    {{> footer}}
+    {{> foot}}
     <!-- end of footer -->
     <script src="/js/basic/form.js"></script>
     <script src="/js/mobile/side_menu.js"></script>

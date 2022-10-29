@@ -13,7 +13,7 @@
 }
 .loader::backdrop {
   background: black;
-  opacity: 0.001;
+  opacity: 0.1;
 }
 .gif_con {
   width: 100%;

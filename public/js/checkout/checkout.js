@@ -8,9 +8,14 @@ const Loaded = async ()=>{
       div(".cart_length").innerHTML = data.length;
       let check = data.some(item=> item.checked);
       let fee = check ? Number(div(".fee").innerHTML) : 0;
-      let sum = data.reduce((sum, value)=> value.checked ? (sum + (value.price * value.product_qty)) : 0, 0);
-      divs(".cartSub").forEach(item=> item.innerHTML = sum);
-      divs(".total").forEach(item=> item.innerHTML = sum + fee);
+    //   let sum = data.reduce((sum, value)=> value.checked ? (sum + (value.price * value.product_qty)) : 0, 0);
+        let total = ()=>{
+            let tot = 0;
+            data.forEach(item=>{if(item.checked == 1)return tot += (Number(item.price)* Number(item.product_qty))});
+            return tot;
+        }
+      divs(".cartSub").forEach(item=> item.innerHTML = total());
+      divs(".total").forEach(item=> item.innerHTML = total() + fee);
       divs('.product').forEach((product) => {
           const elem = tag=> product.querySelector(tag)
           elem('#decrease').classList.add("noCurs") 

@@ -12,7 +12,8 @@ exports.Cart = async (req, res) => {
       `SELECT * FROM products JOIN cart ON products.product_id = cart.product_id WHERE cart.session_id = "${req.sessionID}"`;
       await db(sql, (err, result)=>{
         if(req.session.device == "phone"){
-         res.render("mobile/cart", { result, categories});
+          let notLogged = req.flash('notLogged');
+         res.render("mobile/cart", { result, categories, notLogged});
         }
         else{
           let id = req.session.passport ? req.session.passport.user : "";

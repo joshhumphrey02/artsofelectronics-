@@ -184,3 +184,14 @@
 .addresses p:nth-child(4){
     text-transform: capitalize;
 }
+
+@media screen and (max-width: 900px) {
+    .address{
+        width: 90vw;
+        min-height: 30rem;
+        max-height: 35rem;
+        left: 5vw;
+        right: 5vw;
+        padding: 2rem 1rem;
+    }
+}

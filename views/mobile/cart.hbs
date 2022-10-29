@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/mobile/basic/utils.css" />
     <link rel="stylesheet" href="/css/mobile/basic/footer.css" />
     <link rel="stylesheet" href="/css/mobile/basic/nav.css" />
+    <link rel="stylesheet" href="/css/basic/loader.css">
     <link rel="stylesheet" href="/css/mobile/basic/side_menu.css" />
     <link rel="stylesheet" href="/css/basic/comfirm_email.css">
     <link rel="stylesheet" href="/css/basic/login.css">
@@ -26,24 +27,26 @@
     <!-- start of forms -->
     {{> reg_forms}}
     <!-- end of forms -->
-
+    <!-- start of loader modal  -->
+    {{> loader}}
+    <!-- end of loader modal  -->
     
     <div class="subtotal">
       <div class="container">
         <h4>CART SUMMARY</h4>
         <div class="sub">
           <h3>Subtotal</h3>
-          <span id="fee" hidden>500</span>
+          <span id="fee" hidden>1000</span>
           <span hidden id="total"></span>
-          <h3><span>&#8358;</span> <span id="cartSub">0</span></h3>
+          <h3><span>&#8358;</span> <span class="cartSub">0</span></h3>
         </div>
         <p>Delivery fee not included yet</p>
       </div>
     </div>
-
     <div class="cart_items">
       <div class="container">
         <h3>CART ITEMS <span>(<span id="cart_value">0</span>)</span></h3>
+      {{#if result}} 
         <div class="products">
             {{#each result}}
           <div class="product" id="product">
@@ -91,9 +94,15 @@
             </div>
           </div>
           {{/each}}
+      {{else}}
+      <div class="noCart">
+        <h2>Your Cart is Empty</h2>
+      </div>
+      {{/if}}
         </div>
         <div class="checkout">
           <div class="checked">
+            <span hidden class="fee">1000</span>
             <input type="checkbox" id="genCheckbox" name="genCheckbox"/>
             <label id="checkLab" for="genCheckbox">Select All</label>
           </div>
@@ -105,7 +114,7 @@
     </div>
 
     <!-- start of footer -->
-    {{> footer}}
+    {{> foot}}
     <!-- end of footer -->
     <script src="/js/basic/form.js"></script>
     <script src="/js/mobile/side_menu.js"></script>

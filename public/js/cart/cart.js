@@ -1,7 +1,7 @@
 const divz = div=> document.querySelector(div);
 const products = document.querySelectorAll("#product");
 //const genCheckbox = document.querySelector("#genCheckbox");
-
+divz('.loader').showModal();
 
 const Loaded = async () => {
   let res = await fetch(`/getCart`);
@@ -27,6 +27,7 @@ const Loaded = async () => {
         elem('#checkbox').value == 1 ? elem('#checkbox').classList.add('afterCheck') : elem('#checkbox').classList.remove('afterCheck')
     });
   }
+  divz('.loader').close();
 };
 
 
@@ -40,6 +41,7 @@ const cch = async(elem)=>{
 
 const controller = async (query, id, elem, product) => {
   try {
+    divz('.loader').showModal();
     let res = await fetch("/postCart", {
       method: "POST",
       headers: { "content-type": "application/json; charset=UTF-8" },
@@ -71,16 +73,19 @@ products.forEach((product) => {
 });
 
 divz('#next').addEventListener("click", async() =>{
-   if(divz('#genCheckout').innerHTML == 0) return;
+   divz('.loader').showModal();
+   if(divz('#genCheckout').innerHTML == 0) return divz('.loader').close();
    let res = await fetch(`/getCart`);
    let data = await res.json();
    console.log(data)
    if(data.length > 0){
      if(data[0].user_id == null){
+       divz('.loader').close();
        return formHandle("log", true, "log_h", true, null);
      }
      else{
       let base = location.origin;
+      divz('.loader').close();
       return location.href = `${base}/checkout`
      }
    }

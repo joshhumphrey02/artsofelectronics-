@@ -1,0 +1,53 @@
+.user {
+  width: 100%;
+  height: 5rem;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1rem .2rem;
+}
+.user h2 {
+  margin-bottom: 0.3rem;
+}
+
+.account_info {
+  width: 100%;
+  padding: 0.1rem 0;
+  margin: 1rem 0;
+}
+.format {
+  width: 100%;
+  background-color: var(--white-color);
+  padding: 1rem 0;
+  margin: 0.5rem 0;
+}
+.acc_menu .container {
+  display: grid;
+  height: 19rem;
+  grid-template-rows: repeat(5, 1fr);
+}
+.pro_links {
+  display: grid;
+  grid-template-columns: auto 10%;
+  align-items: center;
+  font-size: 1.3rem;
+  color: black;
+  font-weight: 600;
+}
+
+.acc_setting .container {
+  display: grid;
+  height: 15rem;
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.logout {
+  width: 100%;
+  margin: 2rem 0 3rem;
+  padding: 0.4rem 0;
+  display: flex;
+  justify-content: center;
+}
+.logout a {
+    color: blue;
+  font-size: 1.4rem;
+}

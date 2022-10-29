@@ -4,7 +4,7 @@
 }
 .cart_section .container {
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 70% auto;
   gap: 2rem;
   margin: 2rem auto;
 }
@@ -202,4 +202,11 @@
 
 .pay_method {
   padding: 0.5rem 1rem 1rem;
+}
+
+@media screen and (max-width: 1100px) {
+  .cart_section .container {
+    grid-template-columns: 63% auto;
+    gap: 1rem;
+  }
 }

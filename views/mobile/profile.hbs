@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Page - Arts of Electronics</title>
+    <link rel="stylesheet" href="/css/mobile/basic/utils.css" />
+    <link rel="stylesheet" href="/css/mobile/basic/nav.css" />
+    <link rel="stylesheet" href="/css/mobile/basic/footer.css" />
+    <link rel="stylesheet" href="/css/mobile/basic/side_menu.css" />
+    <link rel="stylesheet" href="/css/mobile/profile.css" />
+  </head>
+  <body>
+    <!-- end of navbar -->
+    {{> nav}}
+    <!-- end of navbar -->
+    <!-- end of navbar -->
+    {{> side_menu}}
+    <!-- end of navbar -->
+    <div class="user">
+      <div class="container">
+        {{#each user}}
+        <h2>Welcome, <span>{{this.last_name}}</span></h2>
+        <h4>{{this.email}}</h4>
+        {{/each}}
+      </div>
+    </div>
+
+
+    <div class="account_info">
+      <h3 class="container">MY ACCOUNT</h3>
+      <ul class="acc_menu format">
+        <div class="container">
+          <li>
+            <a href="#" class="pro_links">
+              Orders
+              <img
+                class="mobile_icon"
+                src="/svg/chevron_right_black_24dp.svg"
+                alt="svg"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="#" class="pro_links">
+              Inbox
+              <img
+                class="mobile_icon"
+                src="/svg/chevron_right_black_24dp.svg"
+                alt="svg"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="#" class="pro_links">
+              Pending Reviews
+              <img
+                class="mobile_icon"
+                src="/svg/chevron_right_black_24dp.svg"
+                alt="svg"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="#" class="pro_links">
+              Favorite Items
+              <img
+                class="mobile_icon"
+                src="/svg/chevron_right_black_24dp.svg"
+                alt="svg"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="#" class="pro_links">
+              Dispute
+              <img
+                class="mobile_icon"
+                src="/svg/chevron_right_black_24dp.svg"
+                alt="svg"
+              />
+            </a>
+          </li>
+        </div>
+      </ul>
+    </div>
+
+    <div class="account_info">
+      <h3 class="container">ACCOUNT SETTINGS</h3>
+      <ul class="acc_setting format">
+        <div class="container">
+          <li>
+            <a href="#" class="pro_links">
+              Account Infomation
+              <img
+                class="mobile_icon"
+                src="/svg/chevron_right_black_24dp.svg"
+                alt="svg"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="#" class="pro_links">
+              Shipping Address
+              <img
+                class="mobile_icon"
+                src="/svg/chevron_right_black_24dp.svg"
+                alt="svg"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="#" class="pro_links">
+              Newsletter
+              <img
+                class="mobile_icon"
+                src="/svg/chevron_right_black_24dp.svg"
+                alt="svg"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="#" class="pro_links">
+              Close Account
+              <img
+                class="mobile_icon"
+                src="/svg/chevron_right_black_24dp.svg"
+                alt="svg"
+              />
+            </a>
+          </li>
+        </div>
+      </ul>
+    </div>
+    <span class="logout"><a href="/logout">LOGOUT</a></span>
+    
+    <!-- start of footer -->
+    {{> foot}}
+    <!-- end of footer -->
+    <script src="/js/mobile/side_menu.js"></script>
+  </body>
+</html>

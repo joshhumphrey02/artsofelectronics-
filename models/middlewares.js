@@ -4,10 +4,12 @@ let sql;
 module.exports={
     Authenticate: (req, res, next)=>{
         if (req.isAuthenticated()) {
+            req.flash('notLogged', "false");
             return next();
         } else {
-            req.flash('error', 'please log in')
-            res.redirect('/form/login');
+            req.flash('error', 'please log in');
+            req.flash('notLogged', "true");
+            res.redirect('/');
         }
     },
     loggedIn: (req, res, next)=>{

@@ -45,7 +45,6 @@ const stack = async(req, res, reference, total, person)=>{
 exports.payment = async(req, res)=>{
     let data = await paystack.transaction;
     let info = await data.verify({reference: req.session.Ref});
-    console.log(info);
     res.render('view/payment_status', {message: info.message})
 }
 exports.pay = (req, res)=>{
