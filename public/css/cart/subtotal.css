@@ -10,7 +10,7 @@
   padding: 1rem 1.3rem 0.3rem;
   border-radius: var(--border-radius-big);
 }
-.summary .total {
+.summary .totals {
   display: flex;
   justify-content: space-between;
   margin: 1rem 0;

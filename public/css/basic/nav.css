@@ -268,4 +268,10 @@ nav{
     color: var(--white-color);
     font-size: 14px;
 }
+
+@media screen and (max-width: 1000px) {
+    .top{
+        height: 3.6rem;
+    }
+}
 /************* end of navbar **********************/

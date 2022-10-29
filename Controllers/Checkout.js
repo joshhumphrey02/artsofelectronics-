@@ -7,8 +7,14 @@ exports.Checkout = async (req, res) => {
     sql = `SELECT products.product_id, products.name, products.image, products.price, cart.product_qty FROM products JOIN cart ON products.product_id = cart.product_id WHERE cart.user_id = ${req.session.passport.user} AND cart.checked = true`
     db(sql, null, async(err, result)=>{
       if(err) throw err;
-      sql = `SELECT * FROM customers WHERE user_id = ${req.session.passport.user}`
-      await db(sql, (err, user)=> res.render("view/checkout", { result, user, checkout: true}));
+      if(req.session.device == "phone"){
+        sql = `SELECT * FROM customers WHERE user_id = ${req.session.passport.user}`
+        await db(sql, (err, user)=> res.render("mobile/checkout", { result, user, checkout: true}));
+      }
+      else{
+        sql = `SELECT * FROM customers WHERE user_id = ${req.session.passport.user}`
+        await db(sql, (err, user)=> res.render("view/checkout", { result, user, checkout: true}));
+      }
     })
   } catch (err) {
     console.log(err);

@@ -7,11 +7,11 @@ const Loaded = async ()=>{
     if(data){
       div(".cart_length").innerHTML = data.length;
       let check = data.some(item=> item.checked);
-      let fee = check ? Number(div("#fee").innerHTML) : 0;
+      let fee = check ? Number(div(".fee").innerHTML) : 0;
       let sum = data.reduce((sum, value)=> value.checked ? (sum + (value.price * value.product_qty)) : 0, 0);
-      div("#cartSub").innerHTML = sum;
-      div('#total').innerHTML = sum + fee;
-      divs('#product').forEach((product) => {
+      divs(".cartSub").forEach(item=> item.innerHTML = sum);
+      divs(".total").forEach(item=> item.innerHTML = sum + fee);
+      divs('.product').forEach((product) => {
           const elem = tag=> product.querySelector(tag)
           elem('#decrease').classList.add("noCurs") 
           elem('#increase').classList.add("noCurs");
@@ -79,26 +79,32 @@ const userAddress = async()=>{
     let data = await res.json();
     if(data.length != 0){
         div('.butt').textContent = 'Change Address';
-        div('#Phone').textContent = data[0].phone;
-        div('#Street').textContent = data[0].street;
+        div("#phone").value = div('#Phone').textContent = data[0].phone;
+        div("#street").value = div('#Street').textContent = data[0].street;
         div('#Lga').textContent = `${data[0].lga}, `;
         div('#State').textContent =` ${data[0].state}, `;
         div('#Country').textContent = data[0].country;
-        div('#Apartment').textContent = data[0].apartment;
+        div("#apartment").value = div('#Apartment').textContent = data[0].apartment;
     }
     else{ div('.butt').textContent = 'Add Address'}
 }
-div('#card_meth').addEventListener('click', ()=>{
-    div('.cardModal').showModal();
-    cardDetails();
-})
-div('#cardClose').addEventListener('click', ()=>div('.cardModal').close());
+// div('#card_meth').addEventListener('click', ()=>{
+//     div('.cardModal').showModal();
+//     cardDetails();
+// })
+// div('#cardClose').addEventListener('click', ()=>div('.cardModal').close());
 
 const pay_area = async()=>{
-    let rez = await fetch('/cart/pay');
-    let daz = await rez.json();
-    div('.loader').close();
-    return location.href = (daz.url);
+    try {
+        let rez = await fetch('/cart/pay');
+        let daz = await rez.json();
+        div('.loader').close();
+        return location.href = (daz.url);
+    } catch (error) {
+        div('.loader').close();
+        div('.msg').textContent = 'Please Check your internet connection';
+        div('.msg').classList.add('msgAfter');
+    }
 }
 
 div('#paynow').addEventListener("click", async()=>{

@@ -1,0 +1,152 @@
+.address {
+  position: fixed;
+  width: 95vw;
+  min-height: 37rem;
+  z-index: 10;
+  top: 10vh;
+  margin: auto;
+  padding: 0.7rem 0.3rem;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 8px;
+}
+.address::backdrop {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.address h2 {
+  position: relative;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.address .personal_info {
+  width: 100%;
+  height: 7rem;
+  padding: 0.5rem 0.5rem;
+}
+.address .personal_info h4 {
+  padding: 0.2rem 0;
+}
+.address h3{
+  width: 100%;
+  padding-left: .4rem;
+}
+.address h3 span {
+  position: absolute;
+  right: 15px;
+  top: -7px;
+  font-size: 2.3rem;
+  cursor: pointer;
+  transition: all 500ms ease-in-out;
+}
+.address .form_control {
+  width: 99%;
+  height: 2.6rem;
+  border: 1px solid;
+  padding: 0.1rem;
+  margin: 0.5rem 0;
+  border-radius: 8px;
+}
+.address .form_control input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 0.4rem 0.4rem;
+  background-color: transparent;
+}
+.address .address_info {
+  width: 100%;
+  height: fit-content;
+  padding: 0.5rem 0.5rem;
+  margin: 0.1rem 0;
+}
+.address .address_info .top_side {
+  width: 100%;
+  height: fit-content;
+  margin: 0.5rem 0;
+}
+.full_add,
+.building {
+  width: 100%;
+}
+.address .location {
+  width: 100%;
+  margin: 0.5rem 0;
+}
+.address .form_control select {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+}
+.address .buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.address .buttons button {
+  width: 7rem;
+  height: 2.8rem;
+  font-size: 1.4rem;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  transition: 300ms;
+}
+.address .buttons button:last-child {
+  background-color: gray;
+}
+.msg {
+  position: fixed;
+  top: 10vh;
+  width: fit-content;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  z-index: 99;
+  background-color: transparent;
+}
+.msgAfter {
+  background-color: green;
+  outline: 4px solid green;
+  color: white;
+  animation-name: msg;
+  animation-duration: 6s;
+  animation-fill-mode: forwards;
+}
+@keyframes msg {
+  0% {
+    transform: translateX(38vw);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(43vw);
+    opacity: 0;
+  }
+}
+.warning {
+  height: 1rem;
+  padding: 0.4rem 1rem;
+  background-color: red;
+  color: white;
+  opacity: 0;
+}
+.warningAfter {
+  display: block;
+  animation-name: err;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+@keyframes err {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.1;
+  }
+}
+
+

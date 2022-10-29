@@ -88,7 +88,11 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('view/error');
+  if(req.session.device == "phone"){
+    res.render('mobile/error');
+  }else{
+    res.render('view/error');
+  }
 });
 
 

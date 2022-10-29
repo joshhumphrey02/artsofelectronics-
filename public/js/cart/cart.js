@@ -9,7 +9,7 @@ const Loaded = async () => {
   if(data){
     divz('#cart_value').innerHTML = divz(".cart_length").innerHTML = data.length;
     let check = data.some(item=> item.checked);
-    let fee = check ? Number(divz("#fee").innerHTML) : 0;
+    let fee = check ? Number(divz(".fee").innerHTML) : 0;
     //let sum = data.reduce((sum, value)=> value.checked ? (sum + (value.price * value.product_qty)) : 0, 0);
     let total = ()=>{
       let tot = 0;
@@ -18,8 +18,9 @@ const Loaded = async () => {
     }
     check ? divz("#checkout").classList.remove('noCurs') : divz("#checkout").classList.add('noCurs');
     data ? divz("#checkLab").classList.add('noCurs') : divz("#checkLab").classList.remove('noCurs');
-    divz("#cartSub").innerHTML = total();
-    divz('#total').innerHTML = divz("#genCheckout").innerHTML = total() + fee;
+    divs(".cartSub").forEach(item=> item.innerHTML = total());
+    divs(".total").forEach(item=> item.innerHTML = total() + fee);
+    divz("#genCheckout").innerHTML = total() + fee;
     products.forEach((product) => {
         const elem = tag=> product.querySelector(tag)
         elem('#productQty').innerHTML < 2 ? elem('#decrease').classList.add("noCurs") : elem('#decrease').classList.remove("noCurs");
@@ -73,6 +74,7 @@ divz('#next').addEventListener("click", async() =>{
    if(divz('#genCheckout').innerHTML == 0) return;
    let res = await fetch(`/getCart`);
    let data = await res.json();
+   console.log(data)
    if(data.length > 0){
      if(data[0].user_id == null){
        return formHandle("log", true, "log_h", true, null);

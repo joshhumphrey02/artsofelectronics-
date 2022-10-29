@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/basic/loader.css">
+    <link rel="stylesheet" href="/css/mobile/basic/utils.css" />
+    <link rel="stylesheet" href="/css/mobile/basic/address.css" />
+    <link rel="stylesheet" href="/css/mobile/checkout.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="container">
+        <a href="/">
+          <h1>Art of Electronics</h1>
+        </a>
+      </div>
+    </nav>
+    <div class="steps">
+      <h4 class="active del">Delivery</h4>
+      <h4 class="sum">Summary</h4>
+    </div>
+    <!-- start of address modal  -->
+    {{> address}}
+    <!-- end of address modal  -->
+    <!-- start of loader modal  -->
+    {{> loader}}
+    <!-- end of loader modal  -->
+    <span hidden class="cart_length"></span>
+    <div class="delivery">
+      <div class="addresses">
+        <div class="adds_top">
+          <h3 class="tag">SHIPPING ADDRESS</h3>
+          <button id="add_address" class="butt">Add Address</button>
+        </div>
+        <div class="user_address">
+          <h4>
+            {{#each user}}
+            <span>{{this.first_name}}</span>
+            <span>{{this.last_name}}, </span>
+            {{/each}} 
+          </h4>
+          <p><span id="Apartment"></span></p>
+          <p><span id="Street"></span></p>
+          <p>
+            <span id="Lga"></span> <span id="State"></span>
+            <span hidden id="Country"></span>
+          </p>
+          <span style="color: rgba(0, 0, 0, 0.7)" id="Phone"></span>
+        </div>
+        <p class="msg"></p>
+      </div>
+
+      <div class="method">
+        <h4 class="tag">SELECT A DELIVERY METHOD</h4>
+        <div class="meth">
+          <div class="radio">
+            <div></div>
+          </div>
+          <div class="met">
+            <h4>Door Delivery</h4>
+            <p>
+              Delivered Between <b>Monday 7 Nov</b> for
+              <b><span>#</span> <span>1000</span></b>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="products">
+        <h4 class="tag">SELECTED PRODUCTS</h4>
+        <div class="stack">
+            {{#each result}}
+          <div class="product" id="product">
+            <div class="pro_img">
+              <img src="data:image/png;base64,{{this.image}}" alt="{{this.name}}" />
+            </div>
+            <div class="product_info">
+              <div class="title">
+                <h3 id="product_name">{{this.name}}</h3>
+              </div>
+              <div class="price">
+                <h3>&#8358; <span>{{this.price}}</span></h3>
+                <h3><span id="productQty">{{this.product_qty}}</span><span>&times;</span></h3>
+              </div>
+                <span hidden id="increase"></span>
+                <span hidden id="decrease"></span>
+                <span hidden id="checkbox"></span>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+
+      <div class="totals">
+        <div class="container">
+          <div class="tz">
+            <h3>Items Toatal</h3>
+            <h3><span>&#8358;</span> <span class="cartSub">0</span></h3>
+          </div>
+          <div class="tz">
+            <h3>Shipping Fees</h3>
+            <h3><span>&#8358;</span> <span class="fee">1000</span></h3>
+          </div>
+          <div class="tz">
+            <h2>Total</h2>
+            <h2><span>&#8358;</span> <span class="total">0</span></h2>
+          </div>
+          <button id="summary" class="nextz">NEXT</button>
+          <a href="/cart"><button class="back">EDIT CART</button></a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="summary">
+      <h4 class="tag">ORDER SUMMARY</h4>
+      <div class="totals">
+        <div class="container">
+          <div class="tz">
+            <h3>Items Toatal</h3>
+            <h3><span>&#8358;</span> <span class="cartSub">0</span></h3>
+          </div>
+          <div class="tz">
+            <h3>Shipping Fees</h3>
+            <h3><span>&#8358;</span> <span class="fee">1000</span></h3>
+          </div>
+          <div class="tz">
+            <h2>Total</h2>
+            <h2><span>&#8358;</span> <span class="total">0</span></h2>
+          </div>
+        </div>
+      </div>
+      <div class="method">
+        <h4 class="tag">SELECT A DELIVERY METHOD</h4>
+        <div class="meth" style="display: block; margin: 1rem 0;">
+          <div class="met">
+            <h4 style="margin-bottom: 1rem;">Door Delivery</h4>
+            <p>
+              Delivered Between <b>Monday 7 Nov</b> for
+              <b><span>#</span> <span>1000</span></b>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="method">
+        <h4 class="tag">PAYEMNT METHOD</h4>
+        <div class="meth" style="display: block;">
+          <div class="met">
+            <h3 style="margin-bottom: 1rem;">Pay with cards</h3>
+            <p>You will be redirected to a secure checkout page</p>
+          </div>
+        </div>
+      </div>
+      <button style="margin: 1rem 0 5rem;" id="paynow" class="nextz">COMFIRM</button>
+    </div>
+    <span hidden id="next">
+        <button  id="checkout">Checkout (<span id="genCheckout">0</span>)</button>
+    </span>
+    <div class="help">
+      <h3>NEED HELP?</h3>
+    </div>
+    <script src="/js/checkout/checkout.js"></script>
+    <script>
+        const tags = (tag)=> document.querySelector(tag);
+        tags('#summary').addEventListener('click', ()=>{
+            tags('.delivery').style.display = 'none';
+            tags('.summary').style.display = 'block';
+            tags('.sum').classList.add('active');
+            tags('.del').classList.remove('active');
+        })
+    </script>
+  </body>
+</html>

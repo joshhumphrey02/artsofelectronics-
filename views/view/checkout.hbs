@@ -24,6 +24,20 @@
     <section class="cart_section">
         <div class="container">
             <div class="cart_items">
+                <div class="addresses">
+                    <h3>SHIPPING ADDRESS</h3>
+                    <h4>
+                        {{#each user}}
+                        <span>{{this.first_name}}</span>
+                        <span>{{this.last_name}}, </span>
+                        {{/each}} 
+                        <span style="color: rgba(0, 0, 0, 0.7);" id="Phone"></span>
+                    </h4>
+                    <p><span id="Street"></span> <span id="Apartment"></span></p>
+                    <p><span id="Lga"></span> <span id="State"></span> <span id="Country"></span></p>
+                    <button id="add_address" class="butt">Add Address</button>
+                    <p class="msg"></p>
+                </div>
                 {{> address}}
                 {{> cards}}
                 {{> cart_item}}
