@@ -15,7 +15,7 @@ diz('body').addEventListener('click', (e)=>{
 
 
 function Load (){
-    fetch('/getCart')
+    fetch('/cart/getCart')
       .then(res => res.json()) 
       .then(data => {
           if(data.length > 0){

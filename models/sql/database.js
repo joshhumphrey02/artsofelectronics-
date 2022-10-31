@@ -14,7 +14,7 @@ const options = {
   max_allowed_packet:'10G'
 };
 const pool = mysql.createPool(options);
-pool.setMaxListeners(200);
+pool.setMaxListeners(20000);
 
 module.exports = {
   sessionStore: new MySQLStore(

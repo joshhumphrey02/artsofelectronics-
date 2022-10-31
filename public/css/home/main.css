@@ -15,7 +15,7 @@
 }
 .top_body_left{
     background-color: var(--white-color);
-    height: 450px;
+    min-height: 450px;
     display: grid;
     padding: 0.2rem 1rem;
     border-radius: var(--border-radius-big)
@@ -63,7 +63,6 @@
 .top_body_right{
     width: 100%;
     height: 460px;
-    margin-top: 32px;
     background-color: var(--white-color);
     border-radius: var(--border-radius-big);
 }
@@ -318,14 +317,5 @@
     }
     .more_items{
         grid-template-columns: repeat(5, 1fr);
-    }
-}
-@media screen and (max-width: 1000px) {
-    body{
-        width: fit-content;
-        overflow-x: scroll;
-    }
-    .more{
-        width: 1000px;
     }
 }

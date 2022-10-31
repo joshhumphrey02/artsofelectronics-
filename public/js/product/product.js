@@ -10,7 +10,7 @@ div('.loader').showModal();
 const Loaded= async()=>{
   try {
     let cartItems = document.querySelector(".cart_length");
-    let res = await fetch(`/getCart`);
+    let res = await fetch(`/cart/getCart`);
     let data = await res.json();
     if(data){
       cartItems.innerHTML = data.length;
@@ -42,7 +42,7 @@ function err(err){
 
 const manager= async(query, feed)=>{
  try {
-  let res = await fetch("/postCart", {
+  let res = await fetch("/cart/postCart", {
     method: "POST",
     headers: {
       "content-type": "application/json; charset=UTF-8",
@@ -68,7 +68,7 @@ const manager= async(query, feed)=>{
 }
 
 const cartB = async()=>{
-  let res = await fetch("/getCart")
+  let res = await fetch("/cart/getCart")
   let data = await res.json();
   data.forEach(item => {
     if(item.name == div('#product_name').innerHTML){

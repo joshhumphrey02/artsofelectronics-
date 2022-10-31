@@ -7,7 +7,7 @@
             "category": "Modules"
         },
         "3": {
-            "category": "Boards"
+            "category": "Diodes"
         },
         "4":{
             "category": "Resistors"
@@ -22,9 +22,12 @@
             "category": "Sensors"
         },
         "8":{
-            "category": "Connectors"
+            "category": "Semi-Conductors"
         },
         "9":{
+            "category": "Inductors"
+        },
+        "10":{
             "category": "Batteries"
         }
     }

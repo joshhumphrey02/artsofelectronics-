@@ -1,6 +1,6 @@
 (function Loaded() {
   let cartItems = document.querySelector(".cart_length");
-  fetch("/getCart")
+  fetch("/cart/getCart")
     .then((res) => res.json())
     .then((data) => {
       cartItems.innerHTML = data.length;

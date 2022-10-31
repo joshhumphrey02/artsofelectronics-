@@ -2,7 +2,7 @@ const div = div=> document.querySelector(div);
 const divs = divs=> document.querySelectorAll(divs);
 const Loaded = async ()=>{
     userAddress();
-    let res = await fetch(`/getCart`);
+    let res = await fetch(`/cart/getCart`);
     let data = await res.json();
     if(data){
       div(".cart_length").innerHTML = data.length;
@@ -58,7 +58,7 @@ div("#comfirm").addEventListener('click', async()=>{
         return setTimeout(()=>div('.warning').classList.remove('warningAfter'), 3000);
     }
     else{
-        let res = await fetch('/postAddress',{
+        let res = await fetch('/user/postAddress',{
             method: "POST",
             headers: {"content-type": "application/json; charset=UTF-8"},
             body: JSON.stringify({
@@ -80,7 +80,7 @@ div("#comfirm").addEventListener('click', async()=>{
     }
 })
 const userAddress = async()=>{
-    let res = await fetch('/getAddress');
+    let res = await fetch('/user/getAddress');
     let data = await res.json();
     if(data.length != 0){
         div('.butt').textContent = 'Change Address';
@@ -101,7 +101,7 @@ const userAddress = async()=>{
 
 const pay_area = async()=>{
     try {
-        let rez = await fetch('/cart/pay');
+        let rez = await fetch('/user/payment');
         let daz = await rez.json();
         div('.loader').close();
         return location.href = (daz.url);
@@ -114,7 +114,7 @@ const pay_area = async()=>{
 
 div('#paynow').addEventListener("click", async()=>{
     div('.loader').showModal();
-    let res = await fetch('/getAddress');
+    let res = await fetch('/user/getAddress');
     let data = await res.json();
     if(data.length > 0){
         pay_area();

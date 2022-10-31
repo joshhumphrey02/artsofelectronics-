@@ -42,12 +42,12 @@ const stack = async(req, res, reference, total, person)=>{
 
 
 
-exports.payment = async(req, res)=>{
+exports.Comfirmation = async(req, res)=>{
     let data = await paystack.transaction;
     let info = await data.verify({reference: req.session.Ref});
     res.render('view/payment_status', {message: info.message})
 }
-exports.pay = (req, res)=>{
+exports.Payment = (req, res)=>{
     try {
         let date = new Date(Date.now());
         let reference = Math.floor((Math.random())* 1000000000);

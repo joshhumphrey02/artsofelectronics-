@@ -2,7 +2,7 @@ const cart_value = document.querySelector('.cart_length');
 
 
 function Loaded (){
-    fetch('/getCart')
+    fetch('/cart/getCart')
       .then(res => res.json()) 
       .then(data => {
           if(data.length > 0){

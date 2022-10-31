@@ -12,9 +12,15 @@ module.exports={
             res.redirect('/');
         }
     },
-    loggedIn: (req, res, next)=>{
-        if (req.isAuthenticated()) {
-            res.redirect('/');
+    logged: (req, res, next)=>{
+        if (req.isAuthenticated() && !req.session.firstName) {
+            sql = `SELECT * FROM customers WHERE user_id = ${req.session.passport.user}`;
+            db(sql, null, (_, user)=>{
+                req.session.firstName = user[0].first_name;
+                req.session.lastName = user[0].last_name;
+                req.session.email = user[0].email
+            })
+            return next();
         } else {
             return next();
         }

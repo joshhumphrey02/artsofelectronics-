@@ -4,7 +4,7 @@ const products = document.querySelectorAll("#product");
 divz('.loader').showModal();
 
 const Loaded = async () => {
-  let res = await fetch(`/getCart`);
+  let res = await fetch(`/cart/getCart`);
   let data = await res.json();
   if(data){
     divz('#cart_value').innerHTML = divz(".cart_length").innerHTML = data.length;
@@ -32,7 +32,7 @@ const Loaded = async () => {
 
 
 const cch = async(elem)=>{
-  let res = await fetch(`/getCart`);
+  let res = await fetch(`/cart/getCart`);
   let data = await res.json();
   data.find(item=>{
     return item.name == elem('#product_name').innerHTML ? elem('#checkbox').value = item.checked : null;
@@ -42,7 +42,7 @@ const cch = async(elem)=>{
 const controller = async (query, id, elem, product) => {
   try {
     divz('.loader').showModal();
-    let res = await fetch("/postCart", {
+    let res = await fetch("/cart/postCart", {
       method: "POST",
       headers: { "content-type": "application/json; charset=UTF-8" },
       body: JSON.stringify({ productId: id, query: query }),
@@ -75,7 +75,7 @@ products.forEach((product) => {
 divz('#next').addEventListener("click", async() =>{
    divz('.loader').showModal();
    if(divz('#genCheckout').innerHTML == 0) return divz('.loader').close();
-   let res = await fetch(`/getCart`);
+   let res = await fetch(`/cart/getCart`);
    let data = await res.json();
    console.log(data)
    if(data.length > 0){

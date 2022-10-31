@@ -24,7 +24,7 @@ const userCheck = async( password, special, checked)=>{
   try {
     let email = special ? div('.A').value : div('.F').value
       if(!email.endsWith("@gmail.com")) return checked(null, false);
-      let res = await fetch("/getUser", {
+      let res = await fetch("/user/getUser", {
         method: "POST",
         headers: { "content-type": "application/json; charset=UTF-8"},
         body: JSON.stringify({email: email, password: password ? div('.B').value : null, special}),
