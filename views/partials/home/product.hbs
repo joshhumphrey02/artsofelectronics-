@@ -1,7 +1,7 @@
 
 {{#each products}}
     <div class="card" id="product">
-    <a href="/p/{{this.category}}/{{this.name}}">
+    <a href="/p/{{this.category}}/{{this.sub_category}}/{{this.name}}">
         <p id="product_id" hidden>{{this.product_id}}</p>
         <div class="card_img">
         <img class="b-radius" style="max-width: 209px; height:149px" loading="lazy" src="data:image/png;base64,{{this.image}}" alt="{{this.name}}" />

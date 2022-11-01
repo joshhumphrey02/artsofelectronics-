@@ -1,0 +1,155 @@
+.narration {
+  width: var(--primary-width);
+}
+
+.product_data {
+  width: 100%;
+  background-color: white;
+  box-shadow: var(--box-shadow-big);
+  padding: 0.4rem;
+  margin: 1rem 0;
+  border-radius: var(--border);
+}
+.spec {
+  padding-bottom: 2rem;
+}
+.product_data h2 {
+  width: 100%;
+  height: 2.5rem;
+  border-bottom: 1px solid lightgray;
+  padding-top: 0.3rem;
+  margin-bottom: 0.5rem;
+}
+.p_det {
+  padding: 0 0.5rem;
+  min-height: 5rem;
+}
+.p_spec {
+  width: 100%;
+  display: grid;
+  gap: 1rem;
+  padding: 1rem 0.5rem;
+}
+.sub_spec {
+  width: 100%;
+  border: 1px solid lightgray;
+  margin: 1rem 0.2rem;
+  padding: 0.2rem 0.5rem;
+}
+.sub_spec li {
+  margin: 0.7rem 0;
+  display: flex;
+  align-items: center;
+}
+.sub_spec:first-child .feat li::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-left-color: blue;
+  margin: 0.3rem 0;
+}
+.sub_spec h3 {
+  width: 100%;
+  height: 2.5rem;
+  border-bottom: 1px solid lightgray;
+  padding-top: 0.3rem;
+  margin-bottom: 0.4rem;
+}
+
+.reviews {
+  width: 100%;
+  background-color: white;
+  padding: 0.3rem;
+  margin: .2rem auto 1rem;
+}
+.r_head {
+  width: 100%;
+  height: 2.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.1rem 0.3rem;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 0.4rem;
+}
+.r_head a {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  display: none;
+}
+.r_content {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 0.7rem;
+  padding: 0.2rem 0.7rem;
+}
+.r_content h4 {
+  margin: 0.5rem 0;
+}
+.r_grad {
+  width: 90%;
+  height: 10rem;
+  margin: 0.5rem 0;
+  background-color: rgba(211, 211, 211, 0.3);
+  color: blue;
+  padding: 2rem 0;
+}
+.r_grad h2 {
+  width: 30%;
+  margin: auto;
+}
+#star {
+  width: 50%;
+  display: flex;
+  gap: 0.2rem;
+  padding: 0.1rem 0;
+  margin: 0.3rem auto 0.7rem;
+}
+.r_grad p {
+  text-align: center;
+  color: black;
+}
+.parts {
+  width: 90%;
+  margin: 1rem 0;
+}
+.parts p {
+  height: 1rem;
+  align-items: center;
+  display: flex;
+  gap: 0.4rem;
+}
+.parts p progress {
+  width: 50%;
+  margin-left: 20%;
+}
+.star_plug {
+  color: blue;
+  font-size: 1.5rem;
+}
+
+.rates {
+  width: 100%;
+  height: 10rem;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  border-bottom: 1px solid lightgray;
+}
+.rates h1 {
+  display: flex;
+  gap: 0.5rem;
+}
+.rates p {
+  font-size: 0.9rem;
+}
+.rates_d {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.rates:last-child {
+  border: none;
+}

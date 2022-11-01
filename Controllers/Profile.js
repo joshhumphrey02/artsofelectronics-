@@ -53,7 +53,7 @@ module.exports = {
           if (result.length == 0) {
             sql = `INSERT INTO address SET?`;
             db(sql, data, (err) => {
-              if (err) throw console.log('An error occured' + err);
+              if (err) console.log('An error occured' + err);
               return res.send({ added: "added" }).status(200);
             });
           } else {

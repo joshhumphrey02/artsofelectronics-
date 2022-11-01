@@ -1,0 +1,40 @@
+
+.products{
+    margin: 2rem auto;
+    min-height: 65vh;
+}
+
+.products .card{
+    width: 185px;
+    height: 250px;
+    background-color: var(--white-color);
+    padding: 0.5rem;
+    position: relative;
+    transition: 2s ;
+}
+.products .card_text{
+    font-size: 0.9em;
+    color: black;
+    font-weight: 600;
+    margin: 0.2rem 0;
+    padding-top: 0.5rem;
+    border-top: 0.5px solid ;
+}
+.products .card .card_img{
+    height: 131px;
+    width: 170px;
+    margin-bottom: .6rem;
+}
+.products.card_price{
+    display: flex;
+    align-items: center;
+}
+.products .card_rating{
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.products .card_rating span:last-child{
+    padding-top: 5px;
+}

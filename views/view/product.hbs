@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/css/basic/loader.css">
     <link rel="stylesheet" href="/css/product/product.css" />
     <link rel="stylesheet" href="/css/product/product_modal.css" />
-    <title>Arts of Electronics - Product Page</title>
+    <title>Product Page - Arts of Electronics</title>
   </head>
 
   <body>
@@ -83,10 +83,10 @@
             <p>Recommended For You</p>
             <div class="re-items">
               {{#each  products}}
-              <a href="/{{this.category}}/{{this.name}}">
+              <a href="/p/{{this.category}}/{{this.sub_category}}/{{this.name}}">
                 <div class="re_item">
                   <div class="item_img">
-                    <img src="{{this.image}}" alt="{{this.name}}">
+                    <img src="data:image/png;base64,{{this.image}}" alt="{{this.name}}">
                   </div>
                   <div class="price">
                     <h4><span>&#8358;  </span>{{this.price}}</h4>

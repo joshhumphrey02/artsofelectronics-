@@ -1,12 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arts of Electronics - Online Shopping for Popular Electronics and Home Gadgets</title>
+    <link rel="stylesheet" href="/css/mobile/basic/utils.css" />
+    <link rel="stylesheet" href="/css/mobile/basic/footer.css" />
+    <link rel="stylesheet" href="/css/mobile/basic/nav.css" />
+    <link rel="stylesheet" href="/css/mobile/basic/side_menu.css" />
+    <link rel="stylesheet" href="/css/basic/loader.css">
+    <link rel="stylesheet" href="/css/basic/comfirm_email.css">
+    <link rel="stylesheet" href="/css/basic/login.css">
+    <link rel="stylesheet" href="/css/mobile/home.css" />
+    <link rel="stylesheet" href="/css/mobile/category.css">
+  </head>
+  <body>
+    <!-- start of loader modal  -->
+    {{> loader}}
+    <!-- end of loader modal  -->
+    {{!-- <script>
+      document.querySelector('.loader').showModal();
+      window.onload = ()=>{
+        document.querySelector('.loader').close();
+      }
+    </script> --}}
+    <!-- start of navbar -->
+    {{> nav}}
+    <!-- end of navbar -->
+    <!-- start of side_menu -->
+    {{> side_menu}}
+    <!-- end of side_menu -->
+    <!-- start of email comfirmation -->
+    {{> comfirm_email}}
+    <!-- end of email comfirmation -->
+    <!-- start of forms -->
+    {{> reg_forms}}
+    <!-- end of forms -->
+    <div class="featured container">
+        <h3>Featured Categories</h3>
+        <div class="features">
+        {{#each subCategories}}
+        <div class="cat_box">
+            {{#if this.sub}}
+            {{#each this.sub}}
+            <div class="cat_img">
+            <a href="/p/{{this.category}}/{{this.sub_category}}">
+                <img src="data:image/png;base64,{{this.image}}" alt="{{this.type}}">
+            </a>
+            </div>
+            {{/each}}
+            {{else}}
+            <div class="cat_img"></div>
+            {{/if}}
+            <h5 class="sub_title">{{this.type}}</h5>
+        </div>
+        {{/each}}
+        </div>
+    </div>
+
+        {{#each subs}}
+    <div class="sub_section container">
+        <h3>{{this.type}} 
+        <a href="/p/{{this.category}}/{{this.type}}">
+            <span>View All</span>
+            <img class="web_svg" src="/svg/chevron_right_black_24dp.svg" alt="svg">
+        </a>
+        </h3>
+        <div class="items">
+        {{#each this.sub}}
+        <div class="card" id="product">
+            <a href="/p/{{this.category}}/{{this.sub_category}}/{{this.name}}">
+                <div class="card_img">
+                <img class="b-radius" loading="lazy" src="data:image/png;base64,{{this.image}}" alt="{{this.name}}" />
+                </div>
+                <div class="card_text">
+                <p id="product_name">{{this.name}}</p>
+                </div>
+                <div class="card_price" style="color: blue; font-weight: 900">
+                <span style="margin-right: 0.4rem;">&#8358;</span>
+                <span id="price" style="font-size: 0.8rem;">{{this.price}}</span>
+                </div>
+            </a>
+        </div>
+        {{/each}}
+        </div>
+    </div>
+    {{/each}}
+
+
+
+
+    <!-- start of footer -->
+    {{> foot}}
+    <!-- end of footer -->
+    <script src="/js/basic/form.js"></script>
+    <script src="/js/mobile/side_menu.js"></script>
+  </body>
 </html>

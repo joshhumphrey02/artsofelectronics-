@@ -3,13 +3,13 @@
     <input type="hidden" id="productId" value="{{this.product_id}}">
     <div class="product_img">
         <input type="checkbox" id="checkbox" class="" name="checkbox" value="{{this.checked}}">
-        <a class="item_link" href="/p/{{this.category}}/{{this.name}}">
+        <a class="item_link" href="/p/{{this.category}}/{{this.sub_category}}/{{this.name}}">
         <img src="data:image/png;base64,{{this.image}}" alt="{{this.name}}">
         </a>
     </div>
     <div class="product_info">
         <div class="title">
-            <a class="item_link" href="/p/{{this.category}}/{{this.name}}">
+            <a class="item_link" href="/p/{{this.category}}/{{this.sub_category}}/{{this.name}}">
             <h2 id="product_name">{{this.name}}</h2>
             </a>
             <div class="setup">

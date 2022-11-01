@@ -78,11 +78,11 @@
     <!--  end of product -->
     <div class="product_data dets">
       {{#each product}}
-      <h2>Product Details 
-        <a href="/p/description/{{this.name}}">
+      <h3>Product Details 
+        <a href="/p/{{this.category}}/{{this.sub_category}}/{{this.name}}/description">
             <img src="/svg/chevron_right_black_24dp.svg" alt="svg">
         </a>
-      </h2>
+      </h3>
       <div class="p_det">
         <p>{{this.description}}</p>
       </div>

@@ -1,46 +1,10 @@
 
-.section{
-    display: grid;
-    grid-template-columns: 20% auto;
-    gap: 15px;
-}
-.top_body_left{
-    min-height: 450px;
-    display: grid;
-    margin: 2rem 0;
-    padding: 0.2rem 1rem;
-    background-color: var(--white-color);
-    border-radius: var(--border-radius-big)
-}
-.top_body_left h3{
-    display: flex;
-    gap: 7px;
-    margin-bottom: 0;
-    align-items: center;
-}
-.top_left_items{
-    display: flex;
-    align-items: center;
-    transition: all 300ms ease;
-    width: 100%;
-    height: 100%;
-}
-.top_left_items:hover{
-    box-shadow: var(--box-shadow);
-}
-.top_left_items:hover > a{
-    color: blue;
-    padding-left: 4px;
-}
-
-
 .featured{
-    width: 100%;
-    margin: 2rem 0;
+    margin: 2rem auto;
     padding: 1px;
 }
-.featured h2{
-    height: 3rem;
+.featured h3{
+    height: 2rem;
     background-color: lightgray;
     display: flex;
     justify-content: center;
@@ -67,7 +31,9 @@
     background-color: lightgray;
     margin: .5rem auto;
 }
-.featured .cat_box h4{
+.featured .cat_box h5{
+    font-size: .7rem;
+    font-weight: 600;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -78,7 +44,7 @@
     margin: 2rem 0;
     padding: 1px;
 }
-.sub_section h2{
+.sub_section h3{
     height: 3rem;
     background-color: lightgray;
     display: flex;
@@ -87,30 +53,31 @@
     align-items: center;
     margin: .5rem auto .3rem;
 }
-.sub_section h2 a{
+.sub_section h3 a{
     width: 7rem;
     height: 2rem;
     display: flex;
     align-items: center;
     color: black;
 }
-.sub_section h2 span{
+.sub_section h3 span{
     font-size: 1.1rem;
 }
 
 .sub_section .items{
-    min-height: 240px;
     display: grid;
     background-color: white;
     grid-template-columns: repeat(6, 1fr);
     gap: 5px;
+    overflow: auto;
+    white-space: nowrap;
 }
 .sub_section .card{
-    width: 100%;
-    max-width: 225px;
-    height: 230px;
+    width: 160px;
+    height: 210px;
     background-color: var(--white-color);
     padding: 0.5rem;
+    margin-bottom: .4rem;
     position: relative;
 }
 .sub_section .card_text{
@@ -121,8 +88,7 @@
 }
 .sub_section .card .card_img{
     height: 150px;
-    max-width: 211px;
-    width: 100%;
+    width: 150px;
 }
 .sub_section .card_price{
     display: flex;

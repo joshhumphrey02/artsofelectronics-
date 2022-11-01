@@ -4,6 +4,7 @@ const session = require("express-session");
 const flash = require("connect-flash");
 const compression = require('compression');
 const morgan = require('morgan');
+const device = require('express-device');
 //const cluster = require("cluster");
 const { sessionStore } = require("./models/sql/database");
 //const numCPUs = require("os").cpus().length;
@@ -11,7 +12,6 @@ require("./models/passport")(passport);
 const hbs = require("hbs");
 const { setMaxListeners, EventEmitter } = require("events");
 require('dotenv').config();
-const device = require('express-device');
 
 
 const app = express();
@@ -55,19 +55,18 @@ app.use(
     saveUninitialized: true,
   })
 );
-
 app.use(morgan('dev'));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 app.use(device.capture());
-
-
-
 app.use((req, res, next)=>{
-  req.session.device = req.device.type ? req.device.type : desktop;
+  req.session.device = req.device.type ? req.device.type : "desktop";
   next();
 });
+
+
+
 app.use("/", require("./routes/router"));
 app.get('/favicon.ico', (req, res)=>{
   res.status(204).end();

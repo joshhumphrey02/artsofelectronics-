@@ -18,12 +18,12 @@
     <!-- start of loader modal  -->
     {{> loader}}
     <!-- end of loader modal  -->
-    <script>
-      document.querySelector('.loader').showModal();
-      window.onload = ()=>{
-        document.querySelector('.loader').close();
+    {{!-- <script>
+      //document.querySelector('.loader').showModal();
+      //window.onload = ()=>{
+       // document.querySelector('.loader').close();
       }
-    </script>
+    </script> --}}
     <!-- start of navbar -->
     {{> nav}}
     <!-- end of navbar -->
@@ -43,7 +43,7 @@
         {{#each featured}}
         <div class="card">
           <div class="card_imgs">
-            <a href="#" class="card_img">
+            <a href="/p/{{this.category}}" class="card_img">
               <img
                 class="b-radius"
                 src="data:image/png;base64,{{this.pix1}}"
@@ -69,7 +69,7 @@
           <div class="recent">
             {{#each recent}}
             <div class="card" id="product">
-              <a href="/p/{{this.category}}/{{this.name}}">
+              <a href="/p/{{this.category}}/{{this.sub_category}}/{{this.name}}">
                 <div class="card_img">
                   <img
                     class="b-radius"
@@ -96,7 +96,7 @@
           <div class="mores">
             {{#each products}}
             <div class="card" id="product">
-              <a href="/p/{{this.category}}/{{this.name}}">
+              <a href="/p/{{this.category}}/{{this.sub_category}}/{{this.name}}">
                 <p id="product_id" hidden></p>
                 <div class="card_img">
                   <img

@@ -41,38 +41,39 @@ const stack = async(req, res, reference, total, person)=>{
 }
 
 
-
-exports.Comfirmation = async(req, res)=>{
-    let data = await paystack.transaction;
-    let info = await data.verify({reference: req.session.Ref});
-    res.render('view/payment_status', {message: info.message})
-}
-exports.Payment = (req, res)=>{
-    try {
-        let date = new Date(Date.now());
-        let reference = Math.floor((Math.random())* 1000000000);
-        const id = req.session.passport.user;
-        let sql = `SELECT email FROM customers WHERE user_id = ${id}`;
-        db(sql, (err, user)=>{
-            sql = `SELECT products.price, cart.product_qty, cart.product_id FROM cart JOIN products ON cart.product_id = products.product_id  WHERE user_id = ${id} AND checked = true`;
-            db(sql, (err, result)=>{
-                let total = amount(result);
-                sql = `INSERT INTO transactions SET?`;
-                let info = {
-                    trans_id: reference,
-                    user_id: id,
-                    products: new ids(result).getIds().join(',').toString(),
-                    email: user[0].email,
-                    session: `${date.toDateString()} - ${date.toTimeString().slice(0, 15)}`,
-                    amount: total
-                }
-                db(sql, info, (err)=>{
-                    if(err) console.log('transaction not saved', err);
-                    stack(req, res, reference, total, user[0].email);
+module.exports = {
+    Comfirmation: async(req, res)=>{
+        let data = await paystack.transaction;
+        let info = await data.verify({reference: req.session.Ref});
+        res.render('view/payment_status', {message: info.message})
+    },
+    Payment: (req, res)=>{
+        try {
+            let date = new Date(Date.now());
+            let reference = Math.floor((Math.random())* 1000000000);
+            const id = req.session.passport.user;
+            let sql = `SELECT email FROM customers WHERE user_id = ${id}`;
+            db(sql, (err, user)=>{
+                sql = `SELECT products.price, cart.product_qty, cart.product_id FROM cart JOIN products ON cart.product_id = products.product_id  WHERE user_id = ${id} AND checked = true`;
+                db(sql, (err, result)=>{
+                    let total = amount(result);
+                    sql = `INSERT INTO transactions SET?`;
+                    let info = {
+                        trans_id: reference,
+                        user_id: id,
+                        products: new ids(result).getIds().join(',').toString(),
+                        email: user[0].email,
+                        session: `${date.toDateString()} - ${date.toTimeString().slice(0, 15)}`,
+                        amount: total
+                    }
+                    db(sql, info, (err)=>{
+                        if(err) console.log('transaction not saved', err);
+                        stack(req, res, reference, total, user[0].email);
+                    })
                 })
             })
-        })
-    } catch (error) {
-        console.log(error);
+        } catch (error) {
+            console.log(error);
+        }
     }
-};
+}

@@ -114,7 +114,7 @@
   border-radius: var(--border);
 }
 
-.product_data h2 {
+.product_data h3 {
   width: 100%;
   height: 2.8rem;
   border-bottom: 1px solid lightgray;
@@ -126,4 +126,7 @@
 }
 .product_data h2 img {
   width: 2.5rem;
+}
+.p_det{
+  min-height: 5rem;
 }

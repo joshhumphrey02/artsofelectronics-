@@ -11,7 +11,7 @@ module.exports = {
       }
       items.push(
         {
-          category: cat == "Accessories" ? "Maintenance And Repairs" : cat,
+          category: cat,
           pix1: pixs[0],
           pix2: pixs[1],
           pix3: pixs[2]
@@ -32,7 +32,7 @@ module.exports = {
       }
       items.push(
         {
-          category: cat == "Accessories" ? "Maintenance And Repairs" : cat,
+          category: cat,
           pix1: pixs[0],
         }
       )
@@ -46,16 +46,17 @@ module.exports = {
     }
     return rows;
   },
-  rows: (products, categories)=>{let items = [];
+  rows: (products, categories, category, length)=>{let items = [];
     categories.forEach((cat, i)=>{
       let sub = [];
       for(let catPix=0; catPix<products.length; catPix++){
-        if(products[catPix].sub_category == cat.type && sub.length < 7){
+        if(products[catPix].sub_category == cat.type && sub.length < length){
           sub.push({...products[catPix]});
         }
       }
       items.push(
         {
+          category: category,
           type: cat.type,
           sub
         }

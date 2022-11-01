@@ -7,9 +7,9 @@ module.exports={
             req.flash('notLogged', "false");
             return next();
         } else {
-            req.flash('error', 'please log in');
             req.flash('notLogged', "true");
-            res.redirect('/');
+            let url = req.session.previous_url ? req.session.previous_url : "/";
+            res.redirect(`${url}`);
         }
     },
     logged: (req, res, next)=>{
@@ -31,8 +31,8 @@ module.exports={
         db(sql, null, (err, user)=>{
             sql = `SELECT * FROM cart WHERE session_id = "${req.sessionID}"`;
             db(sql, null, (err, items)=>{
-                items.map(()=>{
-                    sql = `UPDATE cart SET user_id = ${user[0].user_id} WHERE session_id = "${req.sessionID}"`;
+                items.map(item=>{
+                    sql = `UPDATE cart SET user_id = ${user[0].user_id} WHERE cart_id = ${item.cart_id}`;
                     db(sql, null, (err)=>{
                         if(err) console.log(err);
                     })
@@ -48,16 +48,5 @@ module.exports={
             if(user[0].type === "admin") return res.redirect('/');
             else(next())
         })
-    },
-    productsChecked: (req, res, next)=>{
-        sql = `SELECT * FROM cart WHERE user_id=${req.session.passport.user} AND checked = true`;
-        db(sql, null, (err, result)=>{
-            if(result > 0){
-                return next();
-            }
-            else{
-                return res.redirect('/cart');
-            }
-        })
-    },
+    }
 }

@@ -34,14 +34,12 @@
     justify-content: space-between;
     align-items: center;
 }
-.side_cat h3 img{
-    width: 2.4rem;
-}
-.side_cat .cat_menu li{
-    padding: .5rem 0;
-}
 .cat_menu li a{
+    display: block;
+    width: 100%;
+    height: 100%;
     color: rgba(0, 0, 0, 0.9);
     font-size: 1rem;
     font-weight: 700;
+    padding: .7rem;
 }
