@@ -23,7 +23,8 @@ router.get('/profile/:category', logged, Authenticate, profile.Category);
 router.post('/user/getUser', profile.getUser);
 router.post('/user/postAddress', Authenticate, profile.postAddress);
 router.get('/user/getAddress', Authenticate, profile.getAddress);
-router.get('/user/payment/comfirmation', Authenticate, payment.Comfirmation);
+router.get('/user/payment/comfirmation', Authenticate, payment.Redirected_Url);
+router.get('/user/comfirmation', Authenticate, payment.Comfirmation);
 router.get('/user/payment', Authenticate, payment.Payment);
 // End of user stuffs
 

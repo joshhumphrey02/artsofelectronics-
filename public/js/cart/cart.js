@@ -1,6 +1,6 @@
 const divz = div=> document.querySelector(div);
 const products = document.querySelectorAll("#product");
-//const genCheckbox = document.querySelector("#genCheckbox");
+const genCheckbox = document.querySelector("#genCheckbox");
 divz('.loader').showModal();
 
 const Loaded = async () => {
@@ -24,8 +24,9 @@ const Loaded = async () => {
     products.forEach((product) => {
         const elem = tag=> product.querySelector(tag)
         elem('#productQty').innerHTML < 2 ? elem('#decrease').classList.add("noCurs") : elem('#decrease').classList.remove("noCurs");
-        elem('#checkbox').value == 1 ? elem('#checkbox').classList.add('afterCheck') : elem('#checkbox').classList.remove('afterCheck')
+        elem('#checkbox').value == 1 ? elem('#checkbox').classList.add('afterCheck') : elem('#checkbox').classList.remove('afterCheck');
     });
+    genCheckbox.value == 1 ? genCheckbox.classList.add('afterCheck') : genCheckbox.classList.remove('afterCheck');
   }
   divz('.loader').close();
 };
@@ -38,6 +39,18 @@ const cch = async(elem)=>{
     return item.name == elem('#product_name').innerHTML ? elem('#checkbox').value = item.checked : null;
   })
 } 
+
+const checkAll = async()=>{
+  let res = await fetch(`/cart/getCart`);
+  let data = await res.json();
+  let allItems = data.every(item=>{
+    return item.checked == true;
+  })
+  allItems ? genCheckbox.value = 1 :  genCheckbox.value = 0;
+  return products.forEach((product) => {
+    product.querySelector('#checkbox').value = genCheckbox.value;
+  })
+}
 
 const controller = async (query, id, elem, product) => {
   try {
@@ -53,6 +66,7 @@ const controller = async (query, id, elem, product) => {
       query === "remove" ? elem("#productQty").innerHTML = Number(elem("#productQty").innerHTML) - 1 : null;
       query === "delete" ? product.remove() : null;
       query === "check" ? cch(elem) : null;
+      query === "select" ? checkAll() : null;
     }
     return Loaded();
   } catch (err) {
@@ -71,6 +85,8 @@ products.forEach((product) => {
   });
   elem('#fav').addEventListener("click", () => null);
 });
+
+genCheckbox.addEventListener('click', ()=> controller("select", null, null, null));
 
 divz('#next').addEventListener("click", async() =>{
    divz('.loader').showModal();

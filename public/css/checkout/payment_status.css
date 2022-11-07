@@ -1,15 +1,46 @@
 section .container{
-    height: 80vh;
+    height:  50vh;
     display: flex;
     align-items: center;
 }
 .message{
-    width: 50%;
+    width: 80%;
     height: 8rem;
     margin: auto;
     box-shadow: 2px 4px 6px rgba(0, 0, 0, .2);
     display: flex;
+    justify-content: space-between;
+    background-color: white;
+    padding: 2rem;
+}
+.message .right{
+    padding: 1rem .5rem;
+}
+.message .rights{
+    height: 100%;
+    padding: 0 .5rem;
+}
+.message .left{
+    padding: 1rem .3rem;
+}
+.message a{
+    display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 100%;
+    color: rgba(0, 0, 0, 0.74);
     background-color: white;
+}
+.errr{
+    color: gray;
+    background: linear-gradient(90deg, rgb(73, 115, 232), blue);
+}
+.message .linkz{
+    margin-bottom: .5rem;
+    width: 10rem;
+    height: 2rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 2px solid blue;
 }

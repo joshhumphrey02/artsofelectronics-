@@ -62,15 +62,19 @@
 }
 .recent .card{
     width: 130px;
-    min-height: 110px;
+    min-height: 120px;
     margin-bottom: .4rem;
 }
 .recent .card_text{
     font-size: 0.65em;
     color: black;
     font-weight: 600;
-    margin: 0.2rem 0 .4rem;
-    padding-top: 0.2rem;
+    margin: 0.2rem 0 .3rem;
+}
+.recent .card_text p{
+    padding: .3rem;
+    font-size: .53rem;
+    min-height: 1rem;
 }
 .recent .card .card_img{
     height: 100px;

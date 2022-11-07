@@ -6,21 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/basic/utils.css" media="all"/>
     <link rel="stylesheet" href="/css/basic/nav.css"/>
+    <link rel="stylesheet" href="/css/basic/footer.css"/>
     <link rel="stylesheet" href="/css/checkout/payment_status.css"/>
     <title>Payment Status - Art of Electronics</title>
 </head>
 <body>
+    {{!-- <!--   start of top section-->
+    {{> pre_nav}}
+    <!--  end of top section   --> --}}
     <!-- start of navbar-->
     {{> navbar}}
     <!--- end of navbar--->
     <!-- start of message-->
+    {{#if status}}
     <section>
         <div class="container">
             <div class="message">
-                <h2>{{message}}</h2>
+                <div class="left">
+                    <h2>Payment Succesful</h2>
+                </div>
+                <div class="right">
+                    <div class="linkz">
+                    <a href="/">Home</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+    {{else}}
+    <section>
+        <div class="container">
+            <div class="message">
+                <div class="left">
+                    <h2>Payment Failed</h2>
+                </div>
+                <div class="rights">
+                    <div class="linkz">
+                    <a class="errr" href="/checkout">Try again</a>
+                    </div>
+                    <div class="linkz">
+                    <a href="/">Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{/if}}
     <!-- end of message-->
+
+    {{> footer}}
+
+  <script src="/js/home/home.js"></script>
 </body>
 </html>

@@ -25,11 +25,9 @@ module.exports = {
     }
   },
   postCart: async (req, res) => {
-    const {productId, productQty, query} = req.body;
+    const {productId, product_Qty, query} = req.body;
     try {
-      let user_id = req.session.passport ? req.session.passport.user : null;
-      let session_id = req.sessionID ? req.sessionID : null;
-      activeQueries(query, productId, productQty, user_id, session_id, (err, result)=>{
+      activeQueries(query, productId, product_Qty, req, (err, result)=>{
         if(err) console.log("controller" + err);
         result ? res.send({data: true}) : res.send({data: false});
       })

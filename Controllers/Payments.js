@@ -1,6 +1,7 @@
 require('dotenv').config();
 var paystack = require("paystack-api")(process.env.PAYMENT_KEY);
 const { db } = require("../models/sql/database");
+let sql;
 
 class ids{
     constructor(dat){
@@ -29,23 +30,43 @@ const stack = async(req, res, reference, total, person)=>{
         });
         if(body.status){
             req.session.Ref = reference;
-            sql = `DELETE FROM cart WHERE user_id=${req.session.passport.user} AND checked = true`;
-            db(sql, null, (err)=>{
-                res.send({url: body.data.authorization_url});
-            })
+            return res.send({url: body.data.authorization_url});
+        }
+        else{
+            return res.status(500);
         }
     } catch (err) {
         console.log('paystack err', err);
-        res.redirect(`${req.session.previous_url}`)
+        res.status(500);
     }
 }
 
 
 module.exports = {
+    Redirected_Url: async(req, res)=>{
+        try {
+            let data = await paystack.transaction;
+            let info = await data.verify({reference: req.session.Ref});
+            console.log(info);
+            let status = info.message === "Verification successful" ? "paid" : "failed";
+            if(info.data.status === "success"){
+                sql = `DELETE FROM cart WHERE user_id=${req.session.passport.user} AND checked = true`;
+                db(sql, null, (err)=>{
+                    sql = `UPDATE transactions SET status = "${status}" WHERE trans_id = ${req.session.Ref}`;
+                    db(sql, null, (err)=>{ if(err) return console.log(err)});
+                })
+            }
+            req.flash('info', info.message);
+            req.flash('status', info.message === "Verification successful" ? true : false);
+            res.redirect('/user/comfirmation');
+        } catch (err) {
+            console.log(err);
+        }
+    },
     Comfirmation: async(req, res)=>{
-        let data = await paystack.transaction;
-        let info = await data.verify({reference: req.session.Ref});
-        res.render('view/payment_status', {message: info.message})
+        let message = req.flash('info');
+        let status = req.flash('status');
+        res.render('view/payment_status', {message, status})
     },
     Payment: (req, res)=>{
         try {
