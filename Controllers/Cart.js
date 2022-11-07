@@ -1,6 +1,8 @@
 const { db } = require("../models/sql/database");
 const { activeQueries } = require('../models/Cart/queries');
 const { categories } = require("../data.json");
+require('dotenv').config();
+let image_url = process.env.IMAGE_URL;
 let sql;
 
 module.exports = {
@@ -12,10 +14,10 @@ module.exports = {
         `SELECT * FROM products JOIN cart ON products.product_id = cart.product_id WHERE cart.session_id = "${req.sessionID}"`;
         await db(sql, (err, result)=>{
           if(req.session.device == "phone"){
-           return res.render("mobile/cart", { result, categories, notLogged: req.flash('notLogged')});
+           return res.render("mobile/cart", { result, image_url, categories, notLogged: req.flash('notLogged')});
           }
           else{
-            return res.render("view/cart", { result, userName: req.session.lastName });
+            return res.render("view/cart", { result, image_url, userName: req.session.lastName });
           }
         })
     } catch (err) {

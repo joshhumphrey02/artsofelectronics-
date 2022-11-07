@@ -42,7 +42,7 @@
             <input id="product_id" type="hidden" name="id" value="{{this.product_id}}">
             <div class="p_imgs">
               <div class="product_img">
-                <img loading="lazy" id="product_img" src="data:image/png;base64,{{this.image}}" style="top: 20px;" alt="{{this.name}}" >
+                <img loading="lazy" id="product_img" src="{{image_url}}/{{this.image}}" style="top: 20px;" alt="{{this.name}}" >
               </div>
             </div>
 
@@ -86,7 +86,7 @@
               <a href="/p/{{this.category}}/{{this.sub_category}}/{{this.name}}">
                 <div class="re_item">
                   <div class="item_img">
-                    <img src="data:image/png;base64,{{this.image}}" alt="{{this.name}}">
+                    <img src="{{image_url}}/{{this.image}}" alt="{{this.name}}">
                   </div>
                   <div class="price">
                     <h4><span>&#8358;  </span>{{this.price}}</h4>

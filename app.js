@@ -32,6 +32,9 @@ hbs.registerHelper("rate", (values) => {
   }
   return rating.join("");
 });
+hbs.registerHelper('image_url', ()=>{
+  return process.env.IMAGE_URL;
+})
 
 const target = new EventTarget();
 const emitter = new EventEmitter();

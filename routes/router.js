@@ -18,7 +18,8 @@ router.get('/p/:category/:subCategory/:product/:description', logged, home.Descr
 // End of home stuffs
 
 // Start of user stuffs
-router.get('/profile', logged, Authenticate, profile.Profile)
+router.get('/profile', logged, Authenticate, profile.Profile);
+router.get('/profile/:category', logged, Authenticate, profile.Category);
 router.post('/user/getUser', profile.getUser);
 router.post('/user/postAddress', Authenticate, profile.postAddress);
 router.get('/user/getAddress', Authenticate, profile.getAddress);

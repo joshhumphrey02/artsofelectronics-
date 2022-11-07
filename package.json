@@ -31,5 +31,15 @@
   },
   "engines": {
     "node": "18.x"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshhumphrey02/artsofelectronics-.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/joshhumphrey02/artsofelectronics-/issues"
+  },
+  "homepage": "https://github.com/joshhumphrey02/artsofelectronics-#readme"
 }

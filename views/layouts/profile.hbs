@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/basic/utils.css" media="all"/>
+    <link rel="stylesheet" href="/css/basic/login.css"/>
+    <link rel="stylesheet" href="/css/basic/nav.css"/>
+    <link rel="stylesheet" href="/css/basic/footer.css"/>
+    <link rel="stylesheet" href="/css/profile/main.css" />
+    <title>Profile - Arts of Electronics</title>
+  </head>
+  <body>
+    <!--   start of top section-->
+    {{> pre_nav}}
+    <!--  end of top section   -->
+
+    <!--   start of navbar -->
+    {{> navbar}}
+    <!---    end of navbar--->
+    <!-- start of loader animation --->
+    <!-- end of loader animation --->
+
+    <!----------start of forms -------------->
+    {{> reg_forms}}
+    <!--- end of forms ---->
+
+    <!----    start of top body  -->
+    <section class="top_body">
+      <div class="container top_body_menu d-grid">
+        <aside class="top_body_left">
+          <h3 class="text-dark">Account</h3>
+          <div class="top_left_items"><a href="/profile" class="btn">Overview</a></div>
+          {{#each profile}}
+          <div class="top_left_items">
+            <a href="/profile/{{this.category}}" class="btn">{{this.category}}</a>
+          </div>
+          {{/each}}
+        </aside>
+        <main class="top_body_center">
+          <h3>{{category}}</h3>
+          <div class="content">
+           {{{body}}}
+          </div>
+        </main>
+      </div>
+    </section>
+    <!----    end of top body  -->
+
+    {{> footer}}
+
+  <script src="/js/home/home.js"></script>
+  <script src="/js/basic/form.js"></script>
+  </body>
+</html>

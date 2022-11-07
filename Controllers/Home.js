@@ -2,12 +2,13 @@ const { db } = require("../models/sql/database");
 const { features, recent, mobileFeatures, rows } = require("../models/home/modules");
 const { subCategory } = require("../models/home/subCat");
 const { categories} = require("../data.json");
+require('dotenv').config();
 let sql = "";
 let data = "";
-
 module.exports = {
   Home: async (req, res) => {
     try {
+      
       let platform = req.session.device == "phone" ? "mobile" : "view";
       req.session.previous_url = req.url;
       sql = "SELECT * FROM products ORDER BY product_id LIMIT 30";
@@ -82,6 +83,7 @@ module.exports = {
             res.render("view/product", { 
               product,
               products,
+             
               userName: req.session.lastName
             });
         }

@@ -31,6 +31,35 @@
             "category": "Batteries"
         }
     },
+    "profile":{
+        "1":{
+            "category": "Wish list"
+        },
+        "2":{
+            "category": "Orders"
+        },
+        "3": {
+            "category": "Payment"
+        },
+        "4":{
+            "category": "Refund and return"
+        },
+        "5":{
+            "category": "Feedback"
+        },
+        "6":{
+            "category": "Setting"
+        },
+        "7":{
+            "category": "Shipping address"
+        },
+        "8":{
+            "category": "Message center"
+        },
+        "9":{
+            "category": "Help Center"
+        }
+    },
     "Accessories": [
         { "type": "Screw Drivers" },
         { "type": "Connecting Wires" },

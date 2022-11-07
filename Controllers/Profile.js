@@ -1,5 +1,5 @@
 const {db} = require('../models/sql/database');
-const { categories } = require("../data.json");
+const { categories, profile } = require("../data.json");
 const bcrypt = require("bcryptjs");
 let sql;
 
@@ -11,11 +11,36 @@ module.exports = {
                 if(req.session.device == "phone"){
                    return res.render('mobile/profile', {user, categories});
                 }
+                else{
+                  return res.render('view/profile/overview', {
+                    layout: "./layouts/profile",
+                    profile,
+                    user,
+                    category: "Overview"
+                  })
+                }
             })
         } catch (error) {
             if(err)console.log(err)
             next();
         }
+    },
+    Category: (req, res)=>{
+      try {
+        let category = req.params.category;
+        category = (category == "Wish list") ? "Favorite" : category;
+        sql = `SELECT * FROM customers WHERE user_id = ${req.session.passport.user}`;
+        db(sql, null, (err, user)=>{
+          return res.render(`view/profile/${category}`, {
+            layout: "./layouts/profile",
+            profile,
+            user,
+            category
+          })
+        })
+      } catch (error) {
+        console.log(error);
+      }
     },
     getUser: async (req, res) => {
         const { email, password, special } = req.body;
