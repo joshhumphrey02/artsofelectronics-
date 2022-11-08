@@ -1,6 +1,6 @@
 module.exports = {
   features: (products)=>{
-    let categories = [ "Accessories", "Modules", "Sensors", "Batteries", "Ic's"];
+    let categories = [ "Accessories", "Modules", "Sensors", "Batteries", "IC's"];
     let items = [];
     categories.forEach((cat, i)=>{
       let pixs = [];
@@ -21,7 +21,7 @@ module.exports = {
       return items;
   },
   mobileFeatures: (products)=>{
-    let categories = [ "Accessories", "Modules", "Sensors", "Batteries", "Ic's", "Diodes", "Capacitors", "Resistors" ];
+    let categories = [ "Accessories", "Modules", "Sensors", "Batteries", "IC's", "Diodes", "Capacitors", "Resistors" ];
     let items = [];
     categories.forEach(cat=>{
       let pixs = [];
