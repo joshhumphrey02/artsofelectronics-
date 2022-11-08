@@ -15,7 +15,7 @@ module.exports = {
       await db(sql, data, (err, products) => {
         let featured = req.session.device == "phone" ? mobileFeatures(products) : features(products);
         let options = {
-          recent: req.session.device == "phone" ? recent(products, 6) : '',
+          recent: req.session.device == "phone" ? recent(products) : '',
           notLogged : req.flash('notLogged')
         }
         return res.render(`${platform}/home`, {...options, categories, products, featured, userName: req.session.lastName})

@@ -52,9 +52,10 @@ module.exports = {
     });
     return { product, specs, feats };
   },
-  recent: (products, length)=>{
+  recent: (products)=>{
+    let start = (products.length - 6)
     let rows = [];
-    for(let b=0; b<length; b++){
+    for(let b=start; b<products.length; b++){
       rows.push(products[b]);
     }
     return rows;
