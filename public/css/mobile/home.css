@@ -55,26 +55,24 @@
 }
 .recent{
     overflow: auto;
-    white-space: nowrap;
+    /* white-space: nowrap; */
     display: grid;
     gap: .2rem;
     grid-template-columns: repeat(10, 1fr);
 }
 .recent .card{
-    width: 130px;
-    min-height: 120px;
+    width: 140px;
+    min-height: 125px;
     margin-bottom: .4rem;
 }
 .recent .card_text{
-    font-size: 0.65em;
+    font-size: 0.85em;
     color: black;
     font-weight: 600;
-    margin: 0.2rem 0 .3rem;
+    margin: 0.1rem 0 .2rem;
 }
 .recent .card_text p{
     padding: .3rem;
-    font-size: .53rem;
-    min-height: 1rem;
 }
 .recent .card .card_img{
     height: 100px;

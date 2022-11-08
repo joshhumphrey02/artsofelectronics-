@@ -4,7 +4,7 @@
     <a href="/p/{{this.category}}/{{this.sub_category}}/{{this.name}}">
         <p id="product_id" hidden>{{this.product_id}}</p>
         <div class="card_img">
-        <img class="b-radius" style="max-width: 209px; height:149px" loading="lazy" src="{{#image_url }}{{/image_url}}/{{this.image}}" alt="{{this.name}}" />
+        <img class="b-radius" style="max-width: 209px; height:149px" loading="lazy" src="{{#image_url }}{{/image_url}}/{{this.images}}" alt="{{this.name}}" />
         </div>
         <div class="card_text">
         <p id="product_name">{{this.name}}</p>
@@ -15,7 +15,7 @@
         </div>
         <div class="card_price" style="color: blue; font-weight: 900">
         <span style="margin-right: 0.4rem;">&#8358;</span>
-        <span id="price" style="font-size: 0.8rem;">{{this.price}}</span><span>.00</span>
+        <span id="price" style="font-size: 0.95rem;">{{this.price}}</span>
         <span id="qty" hidden>1</span>
         </div>
     </a>

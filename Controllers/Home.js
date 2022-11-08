@@ -1,5 +1,5 @@
 const { db } = require("../models/sql/database");
-const { features, recent, mobileFeatures, rows } = require("../models/home/modules");
+const { features, recent, mobileFeatures, rows, pro_info } = require("../models/home/modules");
 const { subCategory } = require("../models/home/subCat");
 const { categories} = require("../data.json");
 require('dotenv').config();
@@ -43,7 +43,7 @@ module.exports = {
             notLogged : req.flash('notLogged')
           }
         }
-        return res.render(`${platform}/categories`, {...options, categories})
+        return res.render(`${platform}/categories`, {...options, image_url: process.env.IMAGE_URL, categories})
       });
     } catch (error) {
       console.log(error);
@@ -81,9 +81,8 @@ module.exports = {
           res.render("mobile/product", {product, categories, notLogged});
         }else{
             res.render("view/product", { 
-              product,
+              product: pro_info(product),
               products,
-             
               userName: req.session.lastName
             });
         }
@@ -94,7 +93,7 @@ module.exports = {
     sql = `SELECT * FROM products WHERE name= "${req.params.product}"`;
     db(sql, null, (err, product)=>{
       if(err) console.log(err);
-      return res.render('mobile/description', {product})
+      return res.render('mobile/description', {product: pro_info(product)})
     })
   }
 }

@@ -46,7 +46,7 @@
             {{#each this.sub}}
             <div class="cat_img">
             <a href="/p/{{this.category}}/{{this.sub_category}}">
-                <img src="{{image_url}}/{{this.image}}" alt="{{this.type}}">
+                <img src="{{image_url}}/{{this.images}}" alt="{{this.type}}">
             </a>
             </div>
             {{/each}}
@@ -72,7 +72,7 @@
         <div class="card" id="product">
             <a href="/p/{{this.category}}/{{this.sub_category}}/{{this.name}}">
                 <div class="card_img">
-                <img class="b-radius" loading="lazy" src="{{image_url}}/{{this.image}}" alt="{{this.name}}" />
+                <img class="b-radius" loading="lazy" src="{{image_url}}/{{this.images}}" alt="{{this.name}}" />
                 </div>
                 <div class="card_text">
                 <p id="product_name">{{this.name}}</p>

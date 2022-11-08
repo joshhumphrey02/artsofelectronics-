@@ -6,7 +6,7 @@ module.exports = {
       let pixs = [];
       for(let catPix=0; catPix<products.length; catPix++){
         if(products[catPix].category == cat && pixs.length < 4){
-          pixs.push(products[catPix].image);
+          pixs.push(products[catPix].images);
         }
       }
       items.push(
@@ -27,7 +27,7 @@ module.exports = {
       let pixs = [];
       for(let catPix=0; catPix<products.length; catPix++){
         if(products[catPix].category == cat && pixs.length < 2){
-          pixs.push(products[catPix].image);
+          pixs.push(products[catPix].images);
         }
       }
       items.push(
@@ -38,6 +38,19 @@ module.exports = {
       )
     })
       return items;
+  },
+  pro_info: (product) => {
+    let specs = [];
+    let feats = [];
+    let spec = product[0].specs.split(",");
+    let feat = product[0].features.split(",");
+    spec.forEach((item) => {
+      specs.push({ spec: item });
+    });
+    feat.forEach((item) => {
+      feats.push({ feat: item });
+    });
+    return { product, specs, feats };
   },
   recent: (products, length)=>{
     let rows = [];

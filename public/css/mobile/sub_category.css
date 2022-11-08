@@ -26,6 +26,7 @@
     margin-bottom: .6rem;
 }
 .products.card_price{
+    font-size: 1rem;
     display: flex;
     align-items: center;
 }

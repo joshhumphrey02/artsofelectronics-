@@ -4,22 +4,28 @@
     <div class="sub_spec">
       <h3>Key Features</h3>
       <div class="feat">
-        <li>Lorem ipsum dolor sit amet.</li>
-        <li>Lorem ipsum dolor sit amet.</li>
-        <li>Lorem ipsum dolor sit amet.</li>
-        <li>Lorem ipsum dolor sit amet.</li>
-        <li>Lorem ipsum dolor sit amet.</li>
+        {{#each product.feats}}
+        <li>{{this.feat}}</li>
+        {{/each}}
       </div>
     </div>
     <div class="sub_spec">
       <h3>Specification</h3>
       <div class="specs">
-        <li><h4 style="margin-right: .4rem;">SKU:</h4> dolor sit amet.</li>
-        <li><h4 style="margin-right: .4rem;">Weigth (kg):</h4> dolor sit amet.</li>
-        <li><h4 style="margin-right: .4rem;">Modal:</h4> dolor sit amet.</li>
-        <li><h4 style="margin-right: .4rem;">Color:</h4> dolor sit amet.</li>
-        <li><h4 style="margin-right: .4rem;">Main Material:</h4> dolor sit amet.</li>
+        {{#each product.specs}}
+        <li>{{this.spec}}</li>
+        {{/each}}
       </div>
     </div>
   </div>
 </div>
+
+
+
+
+        {{!-- <li><h4 style="margin-right: .4rem;">SKU:</h4> dolor sit amet.</li>
+        <li><h4 style="margin-right: .4rem;">Weigth (kg):</h4> dolor sit amet.</li>
+        <li><h4 style="margin-right: .4rem;">Modal:</h4> dolor sit amet.</li>
+        <li><h4 style="margin-right: .4rem;">Color:</h4> dolor sit amet.</li>
+        <li><h4 style="margin-right: .4rem;">Main Material:</h4> dolor sit amet.</li>
+      </div> --}}

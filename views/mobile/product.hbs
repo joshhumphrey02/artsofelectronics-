@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arts of Electronics - Product Page</title>
+    <title>Product Page - Arts of Electronics</title>
     <link rel="stylesheet" href="/css/mobile/basic/utils.css" />
     <link rel="stylesheet" href="/css/mobile/basic/footer.css" />
     <link rel="stylesheet" href="/css/mobile/basic/nav.css" />
@@ -39,7 +39,7 @@
         {{#each product}}
         <input id="product_id" type="hidden" name="id" value="{{this.product_id}}"/>
         <div class="product_img">
-          <img loading="lazy" id="product_img" src="{{image_url}}/{{this.image}}" alt="{{this.name}}" />
+          <img loading="lazy" id="product_img" src="{{image_url}}/{{this.images}}" alt="{{this.name}}" />
         </div>
         <div class="product_details">
           <h3 id="product_name">{{this.name}}</h3>
