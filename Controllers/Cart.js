@@ -25,9 +25,9 @@ module.exports = {
     }
   },
   postCart: async (req, res) => {
-    const {productId, product_Qty, query} = req.body;
+    const {productId, productQty, query} = req.body;
     try {
-      activeQueries(query, productId, product_Qty, req, (err, result)=>{
+      activeQueries(query, productId, productQty, req, (err, result)=>{
         if(err) console.log("controller" + err);
         result ? res.send({data: true}) : res.send({data: false});
       })
@@ -43,6 +43,7 @@ module.exports = {
         `SELECT cart.user_id, products.price, products.name, cart.product_qty, cart.checked FROM products JOIN cart ON products.product_id = cart.product_id WHERE cart.user_id = ${user_id}` : 
         `SELECT cart.user_id, products.price, products.name, cart.product_qty, cart.checked FROM products JOIN cart ON products.product_id = cart.product_id WHERE cart.session_id = "${session_id}"`;
         db(sql, (err, result)=>{
+          if(err) console.log(err)
           res.send(result);
         })
     } catch (err) {

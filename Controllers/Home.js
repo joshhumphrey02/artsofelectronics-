@@ -8,7 +8,6 @@ let data = "";
 module.exports = {
   Home: async (req, res) => {
     try {
-      
       let platform = req.session.device == "phone" ? "mobile" : "view";
       req.session.previous_url = req.url;
       sql = "SELECT * FROM products ORDER BY product_id LIMIT 30";
